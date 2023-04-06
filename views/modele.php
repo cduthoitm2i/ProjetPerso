@@ -18,7 +18,7 @@ http://localhost:3000/ProjetPersoInfoAvions/views/modele.php -->
 <body>
     <header>
         <?php
-        include '..//views/partials/header.php';
+        include './partials/header.php';
         ?>
     </header>
     <nav>

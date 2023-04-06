@@ -7,8 +7,8 @@
 
 <nav class="navbar navbar-expand-lg fixed-top" style="background-color: #e3f2fd;">
   <div class="container-fluid">
-  <a class="navbar-brand" href="#">
-      <img src="/icones/Logo_Airbus_2014.svg" alt="Mon logo" width="200">
+  <a class="navbar-brand" href="/views/modele.php">
+      <img src="../icones/Logo_Airbus_2014.svg" alt="Mon logo" width="200">
     </a>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -26,7 +26,10 @@
           <a class="nav-link" href="/views/contact.php">Contact</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/views/login.php">Inscription</a>
+          <a class="nav-link" href="/views/inscription.php">Inscription</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/views/login.php">Login</a>
         </li>
       </ul>
       <form class="d-flex" role="search">
