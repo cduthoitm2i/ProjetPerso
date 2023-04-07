@@ -27,45 +27,47 @@ http://localhost:3000/ProjetPersoInfoAvions/views/modele.php -->
         ?>
     </nav>
     <section>
-        <div class="container login">
-            <h1>Login</h1>
-            <br>
-            <form>
-                <!-- Email input -->
-                <div class="form-outline mb-4">
-                    <label class="form-label" for="form2Example1">Adresse mail&nbsp;:</label>
-                    <input type="email" id="form2Example1" class="form-control" />
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+                    <div class="card border-0 shadow rounded-3 my-5">
+                        <div class="card-body p-4 p-sm-5">
+                            <h5 class="card-title text-center mb-5 fw-light fs-4">Authentification</h5>
+                            <form method="POST" action="../controllers/AuthentificationCTRL.php">
+                                <div class="form-floating mb-3">
+                                    <label class="form-label" for="form2Example1">Utilisateur&nbsp;:</label>
+                                    <!-- Modifier en type text car ce n'est pas sécurisé pour le login, on préférera pour une inscription -->
+                                    <input type="text" id="form2Example1" class="form-control" placeholder="Identifiant" name="identify" aria-describedby="IdentifiantAide" required />
+                                    <small id="IdentifiantAide" class="form-text text-muted">Saisir votre identifiant</small>
+                                </div>
+                                <div class="form-floating mb-3">
+                                    <label class="form-label" for="form2Example2">Mot de passe&nbsp;:</label>
+                                    <input type="password" id="form2Example2" class="form-control" placeholder="Mot de passe" name="mdp" aria-describedby="mdpAide" required />
+                                    <small id="mdpAide" class="form-text text-muted">Saisir votre mot de passe</small>
+                                </div>
 
-                </div>
-
-                <!-- Password input -->
-                <div class="form-outline mb-4">
-                    <label class="form-label" for="form2Example2">Mot de passe&nbsp;:</label>
-                    <input type="password" id="form2Example2" class="form-control" />
-
-                </div>
-
-                <!-- 2 column grid layout for inline styling -->
-                <div class="row mb-4">
-                    <div class="col d-flex justify-content-center">
-                        <!-- Checkbox -->
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="form2Example31" checked />
-                            <label class="form-check-label" for="form2Example31"> Se souvenir </label>
+                                <div class="form-check mb-3">
+                                    <input class="form-check-input" type="checkbox" value="" id="rememberPasswordCheck">
+                                    <label class="form-check-label" for="rememberPasswordCheck">
+                                        Mot de passe visible
+                                    </label>
+                                </div>
+                                <div class="d-grid">
+                                    <button class="btn btn-primary btn-login text-uppercase fw-bold" type="submit">Connexion</button>
+                                </div>
+                                <label>
+                                    <?php
+                                    // Si la variable $message existe alors on affiche son contenu
+                                    if (isset($message)) {
+                                        echo $message;
+                                    }
+                                    ?>
+                                </label>
+                            </form>
                         </div>
                     </div>
-
-                    <div class="col">
-                        <!-- Simple link -->
-                        <a href="#!">Mot de passe oublié&thinsp;?</a>
-                    </div>
                 </div>
-
-                <!-- Submit button -->
-                <button type="button" class="btn btn-primary btn-block mb-4">Connexion</button>
-
-
-            </form>
+            </div>
         </div>
     </section>
     </section>

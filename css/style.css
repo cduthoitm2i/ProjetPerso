@@ -17,7 +17,7 @@ html {
 
 
 section {
-
+    margin-top: 100px;
     min-height: auto;
 }
 
@@ -41,7 +41,13 @@ footer {
     height: 80px;
 }
 
-/* CSS pour le formulaire d'inscription*/
+/* CSS pour la fenêtre de login */
+  
+.btn-login {
+    font-size: 0.9rem;
+    letter-spacing: 0.05rem;
+    padding: 0.75rem 1rem;
+  }
 
 div.login {
     background: #9c9bc5;
