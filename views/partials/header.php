@@ -7,7 +7,7 @@
 
 <nav class="navbar navbar-expand-lg fixed-top" style="background-color: #e3f2fd;">
   <div class="container-fluid">
-  <a class="navbar-brand" href="/views/modele.php">
+  <a class="navbar-brand" href="../views/modele.php">
       <img src="../icones/Logo_Airbus_2014.svg" alt="Mon logo" width="200">
     </a>
 
@@ -17,19 +17,19 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="/views/acceuil.php">Accueil</a>
+          <a class="nav-link active" aria-current="page" href="../views/accueil.php">Accueil</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/views/catalogue.php">Catalogue</a>
+          <a class="nav-link" href="../views/catalogue.php">Catalogue</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/views/contact.php">Contact</a>
+          <a class="nav-link" href="../views/contact.php">Contact</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/views/inscription.php">Inscription</a>
+          <a class="nav-link" href="../views/inscription.php">Inscription</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/views/login.php">Login</a>
+          <a class="nav-link" href="../views/login.php">Login</a>
         </li>
       </ul>
       <form class="d-flex" role="search">

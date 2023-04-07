@@ -17,9 +17,8 @@ html {
 
 
 section {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+
+    min-height: auto;
 }
 
 /* CSS pour le header */
