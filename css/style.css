@@ -76,3 +76,4 @@ div.login {
 .login label{
     font-weight: bold;
 }
+.error {color: #FF0000;}

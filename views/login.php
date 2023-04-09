@@ -39,14 +39,14 @@ http://localhost:3000/ProjetPersoInfoAvions/views/modele.php -->
                             <h5 class="card-title text-center mb-5 fw-light fs-4">Authentification</h5>
                             <form method="POST" action="../controllers/AuthentificationCTRL.php">
                                 <div class="form-floating mb-3">
-                                    <label class="form-label" for="utilisateur">Utilisateur&nbsp;:</label>
+                                    <label class="form-label" for="user">Utilisateur&nbsp;:</label>
                                     <!-- Modifier en type text car ce n'est pas sécurisé pour le login, on préférera pour une inscription -->
-                                    <input type="text" id="utilisateur" class="form-control" placeholder="Identifiant" name="identify" aria-describedby="IdentifiantAide" required />
+                                    <input type="text" id="user" class="form-control" placeholder="Identifiant" name="user" aria-describedby="IdentifiantAide" required />
                                     <small id="IdentifiantAide" class="form-text text-muted">Saisir votre identifiant</small>
                                 </div>
                                 <div class="form-floating mb-3">
                                     <label class="form-label" for="mdp">Mot de passe&nbsp;:</label>
-                                    <input type="password" id="mdp" class="form-control" placeholder="Mot de passe" name="mdp" aria-describedby="mdpAide" required />
+                                    <input type="password" id="mdp" class="form-control" placeholder="Mot de passe" autocomplete="on" name="password" aria-describedby="mdpAide" required />
                                     <small id="mdpAide" class="form-text text-muted">Saisir votre mot de passe</small>
                                 </div>
 
