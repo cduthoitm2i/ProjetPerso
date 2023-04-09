@@ -8,7 +8,7 @@
       <div class="col-md-4"><span class="align"><small>Copyright &copy; 2023 Mon site web</small></span></div>
       <div class="col-md-4 offset-md-2"><span><small>
         <?php
-        include './partials/date.php';
+        include '../views/partials/date.php';
         ?>
       </small></span></div>
     </div>

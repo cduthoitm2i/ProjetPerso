@@ -20,12 +20,12 @@
 
     <header>
         <?php
-        include '..//views/partials/header.php';
+        include '../views/partials/header.php';
         ?>
     </header>
     <nav>
         <?php
-        include './partials/nav.php';
+        include '../views/partials/nav.php';
         ?>
     </nav>
     <section>
@@ -33,7 +33,7 @@
     </section>
     <footer>
         <?php
-        include './partials/footer.php';
+        include '../views/partials/footer.php';
         ?>
     </footer>
 </body>

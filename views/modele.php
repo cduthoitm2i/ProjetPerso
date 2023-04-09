@@ -18,12 +18,12 @@ http://localhost:3000/ProjetPersoInfoAvions/views/modele.php -->
 <body>
     <header>
         <?php
-        include './partials/header.php';
+        include '../views/partials/header.php';
         ?>
     </header>
     <nav>
         <?php
-        include './partials/nav.php';
+        include '../views/partials/nav.php';
         ?>
     </nav>
     <section>
@@ -37,7 +37,7 @@ http://localhost:3000/ProjetPersoInfoAvions/views/modele.php -->
     </section>
     <footer>
         <?php
-        include './partials/footer.php';
+        include '../views/partials/footer.php';
         ?>
     </footer>
 </body>

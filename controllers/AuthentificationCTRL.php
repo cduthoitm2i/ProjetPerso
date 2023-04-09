@@ -37,6 +37,6 @@ if(filter_var($identify, FILTER_VALIDATE_EMAIL)){
 $message = "$identify/$mdp";
 echo $message;
 
-include '../views/login.php';
+include '../views/Login.php';
 
 ?>
