@@ -6,7 +6,7 @@
   <div class="container">
   <div class="row">
       <div class="col-md-4"><span class="align"><small>Copyright &copy; 2023 Mon site web</small></span></div>
-      <div class="col-md-4 offset-md-2"><span><small>
+      <div class="col-md-4 offset-md-4"><span><small>
         <?php
         include '../views/partials/date.php';
         ?>

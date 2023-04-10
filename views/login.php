@@ -37,7 +37,7 @@ http://localhost:3000/ProjetPersoInfoAvions/views/modele.php -->
                     <div class="card border-0 shadow rounded-3 my-5">
                         <div class="card-body p-4 p-sm-5">
                             <h5 class="card-title text-center mb-5 fw-light fs-4">Authentification</h5>
-                            <form method="POST" action="../controllers/AuthentificationCTRL.php">
+                            <form method="POST" action="../controllers/LoginCTRL.php">
                                 <div class="form-floating mb-3">
                                     <label class="form-label" for="user">Utilisateur&nbsp;:</label>
                                     <!-- Modifier en type text car ce n'est pas sécurisé pour le login, on préférera pour une inscription -->
