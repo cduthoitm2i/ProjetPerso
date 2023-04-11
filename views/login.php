@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<!-- modele.php
-http://localhost:3000/ProjetPersoInfoAvions/views/modele.php -->
+
 <html lang="fr">
 
 <head>
@@ -30,6 +29,7 @@ http://localhost:3000/ProjetPersoInfoAvions/views/modele.php -->
         include '../views/partials/nav.php';
         ?>
     </nav>
+
     <section>
         <div class="container">
             <div class="row">

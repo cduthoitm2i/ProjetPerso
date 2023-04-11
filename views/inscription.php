@@ -36,13 +36,13 @@
                                 <div class="row">
 
                                     <div class="col-4">
-                                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="genre" value="1">
+                                        <input class="form-check-input" type="radio" name="civilite" id="genre" value="Monsieur">
                                         <label class="form-check-label" for="genre">
                                             Monsieur
                                         </label>
                                     </div>
                                     <div class="col-4">
-                                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="genre2" value="2">
+                                        <input class="form-check-input" type="radio" name="civilite" id="genre2" value="Madame">
                                         <label class="form-check-label" for="genre2">
                                             Madame
                                         </label>

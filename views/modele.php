@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<!-- modele.php
-http://localhost:3000/ProjetPersoInfoAvions/views/modele.php -->
+
 <html lang="fr">
 
 <head>
