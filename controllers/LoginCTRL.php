@@ -26,4 +26,3 @@ if (empty($user) || empty($password)) {
 
 
 include '../views/Login.php';
-?>
