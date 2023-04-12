@@ -13,7 +13,7 @@ require_once '../controllers/controleER.php';
 $message = "";
 $erreur = 0;
 
-
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
 /* Récupération des variables de la page d'inscription*/
 $genre = filter_input(INPUT_POST, "genre");
 $genre2 = filter_input(INPUT_POST, "genre2");
@@ -30,7 +30,7 @@ $mdp = filter_input(INPUT_POST, "mdp");
 $mdp2 = filter_input(INPUT_POST, "mdp2");
 
 $newsletter = filter_input(INPUT_POST, "newsletter");
-
+}
 
 
 

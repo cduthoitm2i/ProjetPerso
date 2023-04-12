@@ -31,24 +31,24 @@
                     <div class="card border-0 shadow rounded-3 my-5">
                         <div class="card-body p-4 p-sm-5">
                             <h5 class="card-title text-center mb-5 fw-light fs-4">Création d'un compte utilisateur</h5>
-                            <form method="POST" action="../controllers/AuthentificationCTRL.php" class="needs-validation" novalidate>
+                            <form method="POST" action="../controllers/AuthentificationCTRL.php/&quot;&gt;&lt;script&gt;alert('hacked')&lt;/script&gt;" class="needs-validation" novalidate>
                                 <!--<p><span class="error">* champs requis</span></p>-->
                                 <div class="row">
 
                                     <div class="col-4">
                                         <input class="form-check-input" type="radio" name="genre" id="genre" value="1">
-                                        <label class="form-check-label" for="genre">
-                                            Monsieur
-                                        </label>
+                                        <label class="form-check-label" for="genre">Monsieur</label>
                                     </div>
                                     <div class="col-4">
                                         <input class="form-check-input" type="radio" name="genre" id="genre2" value="2">
-                                        <label class="form-check-label" for="genre2">
-                                            Madame
-                                        </label>
+                                        <label class="form-check-label" for="genre2">Madame</label>
+                                    </div>
+                                    <div class="col-4">
+                                        <input class="form-check-input" type="radio" name="genre" id="genre3" value="2">
+                                        <label class="form-check-label" for="genre2">Autres</label>
                                     </div>
                                 </div>
-
+                                <br>
                                 <div class="form-floating mb-3">
                                     <label for="nom" class="sr-only col-sm-2 col-form-label">Nom</label>
                                     <input class="form-control" id="nom" type="text" placeholder="Nom" aria-label="Nom" aria-describedby="NomAide" name="nom">
