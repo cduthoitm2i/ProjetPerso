@@ -67,7 +67,7 @@
             }
         }
         if (empty($_POST["email2"])) {
-            $email2Err = "*&nbsp;Email a renseigné";
+            $email2Err = "<br>*&nbsp;Email a renseigné";
         } else {
             $email2 = test_input($_POST["email2"]);
             // check if e-mail address is well-formed
