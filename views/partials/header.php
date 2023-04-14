@@ -19,14 +19,14 @@
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Avion</a>
-          <ul class="dropdown-menu dropdown-menu-end dropdown-menu-lg-start">
+          <ul class="dropdown-menu dropdown-menu-end dropdown-menu-lg-start" style="background-color: #e3f2fd;">
             <li><a class="dropdown-item" href="../views/Avion_recherche.php">Rechercher un avion</a></li>
             <li><a class="dropdown-item" href="../views/Avion_liste_prod.php">Liste de production</a></li>
           </ul>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Compagnie</a>
-          <ul class="dropdown-menu dropdown-menu-end dropdown-menu-lg-start">
+          <ul class="dropdown-menu dropdown-menu-end dropdown-menu-lg-start" style="background-color: #e3f2fd;">
             <li><a class="dropdown-item" href="../views/Compagnie_recherche.php">Rechercher une compagnie</a></li>
             <li><a class="dropdown-item" href="../views/Compagnie_liste.php">Liste des compagnies</a></li>
             <li><a class="dropdown-item" href="../views/Compagnie_liste_par_pays.php">Liste par pays</a></li>
@@ -37,7 +37,7 @@
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Aéroport</a>
-          <ul class="dropdown-menu dropdown-menu-end dropdown-menu-lg-start">
+          <ul class="dropdown-menu dropdown-menu-end dropdown-menu-lg-start" style="background-color: #e3f2fd;">
             <li><a class="dropdown-item" href="../views/Aeroport_recherche.php">Rechercher un aéroport</a></li>
             <li><a class="dropdown-item" href="../views/Aeroport_par_pays.php">Liste des aéroports par pays</a></li>
           </ul>
