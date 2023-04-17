@@ -1,102 +1,109 @@
 <?php
+// define variables and set to empty values
+$genre = $nom = $prenom = $telephone = $email = $email2 = $adresse = $cp = $ville = $user = $mdp = $mdp2 = $newsletter = "";
+$genreErr = $nomErr = $prenomErr = $telephoneErr = $emailErr = $email2Err = $email2bisErr = $adresseErr = $cpErr = $villeErr = $userErr = $mdpErr = $mdp2Err = $mdp2bisErr = $newsletterErr = "";
 
-
-
-/* 
- * AuthentificationCTRL.php
- */
-
-/* Ajout des contrôles*/
-/* Ne fonctionne pas !!*/
-require_once '../controllers/controleER.php';
-
-$message = "";
-$erreur = 0;
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-/* Récupération des variables de la page d'inscription*/
-$genre = filter_input(INPUT_POST, "genre");
-$genre2 = filter_input(INPUT_POST, "genre2");
-$nom = filter_input(INPUT_POST, "nom");
-$prenom = filter_input(INPUT_POST, "prenom");
-$telephone = filter_input(INPUT_POST, "telephone");
-$email = filter_input(INPUT_POST, "email");
-$email2 = filter_input(INPUT_POST, "email2");
-$adresse = filter_input(INPUT_POST, "adresse");
-$cp = filter_input(INPUT_POST, "cp");
-$ville = filter_input(INPUT_POST, "ville");
-$user = filter_input(INPUT_POST, "user");
-$mdp = filter_input(INPUT_POST, "mdp");
-$mdp2 = filter_input(INPUT_POST, "mdp2");
+  if (empty($_POST["genre"])) {
+    $genreErr = "*&nbsp;Genre est obligatoire";
+  } else {
+    $genre = test_input($_POST["genre"]);
+  }
+  if (empty($_POST["nom"])) {
+    $nomErr = "*&nbsp;Renseigner votre nom";
+  } else {
+    $nom = test_input($_POST["nom"]);
+  }
+  if (empty($_POST["prenom"])) {
+    $prenomErr = "*&nbsp;Renseigner votre prénom";
+  } else {
+    $prenom = test_input($_POST["prenom"]);
+  }
+  if (empty($_POST["telephone"])) {
+    $telephoneErr = "*&nbsp;Renseigner votre numéro de téléphone";
+  } else {
+    $telephone = test_input($_POST["telephone"]);
+    if (preg_match("@^(0[1-9](-| |)([0-9]{2}(-| |)){3}[0-9]{2})$@", "$telephone")) {
+      $telephone = test_input($_POST["telephone"]);
+    } else {
+      $telephoneErr = "*&nbsp;Le numéro de téléphone n'est pas correct";
+    }
+  }
 
-$newsletter = filter_input(INPUT_POST, "newsletter");
-}
+  if (empty($_POST["email"])) {
+    $emailErr = "*&nbsp;Email a renseigné";
+  } else {
+    $email = test_input($_POST["email"]);
+    // check if e-mail address is well-formed
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+      $emailErr = "*&nbsp;format invalide de l'email";
+    }
+  }
+  if (empty($_POST["email2"])) {
+    $email2Err = "<br>*&nbsp;Email a renseigné";
+  } else {
+    $email2 = test_input($_POST["email2"]);
+    // check if e-mail address is well-formed
+    if (!filter_var($email2, FILTER_VALIDATE_EMAIL)) {
+      $email2Err = "<br>*&nbsp;format invalide de l'email";
+    }
+  }
+  if ($email <> $email2) {
+    $email2bisErr = "<br>*&nbsp;Les deux adresses mails sont différentes";
+  }
+  if (empty($_POST["adresse"])) {
+    $adresseErr = "*&nbsp;Renseigner votre adresse";
+  } else {
+    $adresse = test_input($_POST["adresse"]);
+  }
+  if (empty($_POST["cp"])) {
+    $cpErr = "*&nbsp;Renseigner votre code postal";
+  } else {
+    $cp = test_input($_POST["cp"]);
+  }
+  if (empty($_POST["ville"])) {
+    $villeErr = "*&nbsp;Renseigner votre ville";
+  } else {
+    $ville = test_input($_POST["ville"]);
+  }
+  if (empty($_POST["user"])) {
+    $userErr = "*&nbsp;Renseigner votre nom d'utilisateur";
+  } else {
+    $user = test_input($_POST["user"]);
+  }
 
 
-
-/* Contrôle du nom */
-
-if ($genre == null) {
-  $erreur++;
-  $message .= "<br>Civilité obligatoire";
-}
-
-// on contrôle la présence du nom
-if (empty($nom)) {
-  $erreur++;
-  $message .= "<br>Nom obligatoire";
-}
-
-// on contrôle la présence du prénom
-if (empty($prenom)) {
-  $erreur++;
-  $message .= "<br>Prénom obligatoire";
-}
-
-// on contrôle que les deux adresses mails sont identique puis le format de l'adresse mail pour une regex
-if ($email != $email2) {
-  $erreur++;
-  $message .= "<br>Les 2 e-mails sont différents";
-} else {
-  if (preg_match(" /^.+@.+\.[a-zA-Z]{2,}$/ ", $email)) {
-    $erreur++;
-    $message .= "<br>L'adresse e-mail est valide";
+  if (empty($_POST["mdp"])) {
+    $mdpErr = "<br>*&nbsp;Mot de passe a renseigner";
+  } else {
+    $mdp = test_input($_POST["mdp"]);
+    // test si password ok
+    if(!preg_match("/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/", $mdp)) {
+      $mdpErr = "*&nbsp;Le mot de passe n'est pas correct";
+      }
+  }
+  if (empty($_POST["mdp2"])) {
+    $mdp2Err = "<br>*&nbsp;Mot de passe a renseigner";
+  } else {
+    $mdp2 = test_input($_POST["mdp2"]);
+    // test si password ok
+    if(!preg_match("/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/", $mdp2)) {
+      $mdp2Err = "<br>*&nbsp;Le mot de passe n'est pas correct";
+      }
+  }
+  if ($mdp <> $mdp2) {
+    $mdp2bisErr = "<br>*&nbsp;Les deux mots de passe sont différentes";
   }
 }
 
-if ($mdp != $mdp2) {
-  $message .= "<br>Les 2 mots de passe sont différents";
-} else {
-  if (preg_match(" /^(?=.*\\d)(?=.*[a-z])(?=.*[A-Z]).{6,10}$/ ", $mdp)) {
-    $erreur++;
-    $message .= "<br>L'adresse e-mail est valide";
-  }
+function test_input($data)
+{
+  $data = trim($data);
+  $data = stripslashes($data);
+  $data = htmlspecialchars($data);
+  return $data;
 }
-
-
-
-
-if (preg_match ( " #^[0-9]{2}[-/ ]?[0-9]{2}[-/ ]?[0-9]{2}[-/ ]?[0-9]{2}[-/ ]?[0-9]{2}?$# ", $telephone ) ){
-  $erreur++;
-  $message .= "<br>Le téléphone est valide";
-}
-
-
-
-
-
-
-
-// On utilise une fonction issu du fichier ControlesER.php
-
-
-
-
-
-
-/* Concaténation des deux variables séparées par un / */
-
-
-// echo $message;
+?>
 
 include '../views/Inscription.php';

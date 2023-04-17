@@ -97,14 +97,14 @@ http://localhost:3000/ProjetPersoInfoAvions/views/modele.php -->
                                     </tr>
                                 </tbody>
                             </table>
-                            <p class="p-2 card-text text-end">Plus de mise à jour vers ce lien</p>
+                            <p class="p-2 card-text text-end"><a href="#">Plus de mise à jour vers ce lien</a></p>
                         </div>
                     </div>
                     <div class="card mb-5">
                         <div class="card-body">
                             <h5 class="card-title">Top photo des 24 dernières heures</h5>
                             <img src="../images/pas_de_photo.jpg" width="75%" class="img-fluid start" alt="...">
-                            <p class="p-2 card-text text-end">Voir l'ensemble du Top photo 24&nbsp;h</p>
+                            <p class="p-2 card-text text-end"><a href="#">Voir l'ensemble du Top photo 24&nbsp;h</a></p>
                         </div>
                     </div>
 
@@ -118,28 +118,28 @@ http://localhost:3000/ProjetPersoInfoAvions/views/modele.php -->
 
                                 <tbody>
                                     <tr>
-                                        <td>Airbus A220</td>
-                                        <td>Airbus A300</td>
-                                        <td>Airbus A310</td>
+                                        <td><a href="../listing/a220.php">Airbus A220</a></td>
+                                        <td><a href="#">Airbus A300</a></td>
+                                        <td><a href="#">Airbus A310</a></td>
                                     </tr>
                                     <tr>
-                                        <td>Airbus A318</td>
-                                        <td>Airbus A319</td>
-                                        <td>Airbus A320</td>
+                                        <td><a href="#">Airbus A318</a></td>
+                                        <td><a href="#">Airbus A319</a></td>
+                                        <td><a href="#">Airbus A320</a></td>
                                     </tr>
                                     <tr>
-                                        <td>Airbus A321</td>
-                                        <td>Airbus A330</td>
-                                        <td>Airbus A340</td>
+                                        <td><a href="#">Airbus A321</a></td>
+                                        <td><a href="#">Airbus A330</a></td>
+                                        <td><a href="#">Airbus A340</a></td>
                                     </tr>
                                     <tr>
-                                        <td>Airbus A350</td>
-                                        <td>Airbus A380</td>
+                                        <td><a href="#">Airbus A350</a></td>
+                                        <td><a href="#">Airbus A380</a></td>
                                         <td></td>
                                     </tr>
                                 </tbody>
                             </table>
-                            <p class="p-2 card-text text-end">Plus de mise à jour vers ce lien</p>
+                            <p class="p-2 card-text text-end"><a href="#">Plus de mise à jour vers ce lien</a></p>
                         </div>
                     </div>
                     <div class="card mb-5">
@@ -164,7 +164,7 @@ http://localhost:3000/ProjetPersoInfoAvions/views/modele.php -->
                                     <img src="../images/europe.jpg" class="w-100 shadow-1-strong rounded mb-4" alt="" />
                                 </div>
                             </div>
-                            <p class="p-2 card-text text-end">Voir l'ensemble du Top photo 24&nbsp;h</p>
+                            <p class="p-2 card-text text-end"><a href="#">Voir l'ensemble du Top photo 24&nbsp;h</a></p>
                         </div>
                     </div>
                     <div class="card mb-5">
@@ -191,7 +191,7 @@ http://localhost:3000/ProjetPersoInfoAvions/views/modele.php -->
                                     </tr>
                                 </tbody>
                             </table>
-                            <p class="p-2 card-text text-end">Plus de mise à jour vers ce lien</p>
+                            <p class="p-2 card-text text-end"><a href="#">Plus de mise à jour vers ce lien</a></p>
                         </div>
                     </div>
                 </div>
