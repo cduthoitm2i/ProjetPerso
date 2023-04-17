@@ -128,6 +128,27 @@ div.login {
   border: 0px;
 }
 
+/* CSS pour page de contact*/
+
+.custom-file-button input[type=file] {
+  margin-left: -2px !important;
+}
+
+.custom-file-button input[type=file]::-webkit-file-upload-button {
+  display: none;
+}
+
+.custom-file-button input[type=file]::file-selector-button {
+  display: none;
+}
+
+.custom-file-button:hover label {
+  background-color: #dde0e3;
+  cursor: pointer;
+}
+
+
+
 
 /* General Styles*/
 body {
