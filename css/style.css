@@ -1,85 +1,136 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
 /* CSS pour le corps du site*/
 * {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    text-decoration: none;
-    outline: none;
-    border: none;
-    font-family: 'Poppins', Arial, sans-serif;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  outline: none;
+  border: none;
+  font-family: "Poppins", Arial, sans-serif;
 }
 html {
-    position: relative;
-    min-height: 100%;
+  position: relative;
+  min-height: 100%;
 }
 
-
 section {
-    margin-top: 100px;
-    min-height: auto;
+  margin-top: 100px;
+  min-height: auto;
 }
 
 /* CSS pour le header */
 header ul {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-}
-
-header ul li {
-    display: inline-block;
-    margin-left: 100px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: inline-block;
+  margin-left: 70px;
 }
 
 /* CSS pour le footer */
 footer {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    height: 80px;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 80px;
 }
 
-/* CSS pour la fenêtre de login */
-  
-.btn-login {
-    font-size: 0.9rem;
-    letter-spacing: 0.05rem;
-    padding: 0.75rem 1rem;
+/* CSS pour la page d'accueil*/
+div.card {
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+    padding: 10px 20px;
+    width: 100%;
   }
 
+
+/* CSS pour la fenêtre de login */
+
+.btn-login {
+  font-size: 0.9rem;
+  letter-spacing: 0.05rem;
+  padding: 0.75rem 1rem;
+}
+
 div.login {
-    background: #9c9bc5;
-    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;padding: 10px 20px;
-    width:50%;
-    margin-top:2.5cm;
-    margin:auto;
+  background: #9c9bc5;
+  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+  padding: 10px 20px;
+  width: 50%;
+  margin-top: 2.5cm;
+  margin: auto;
 }
 
-.login .btn{
-    background-color: royalblue;
-    border: 0;
+.login .btn {
+  background-color: royalblue;
+  border: 0;
 }
-.login .btn:hover{
-    font-weight: bold;
-}
-
-.login h1{
-    color: royalblue;
-    padding-top: 150px;
-    text-align: center;
-    padding-bottom: 20px;
-    border-bottom: 3px dashed #CCC;
+.login .btn:hover {
+  font-weight: bold;
 }
 
-.login label{
-    font-weight: bold;
+.login h1 {
+  color: royalblue;
+  padding-top: 150px;
+  text-align: center;
+  padding-bottom: 20px;
+  border-bottom: 3px dashed #ccc;
 }
-.error {color: #FF0000;}
 
+.login label {
+  font-weight: bold;
+}
 
+.error {
+  color: #ff0000;
+}
 
+/* CSS pour effet sur menu*/
+.nav-item {
+  position: relative;
+}
 
+.navbar-collapse ul li a.nav-link:before {
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: transparent;
+  content: "";
+  opacity: 0;
+  -ms-transition: opacity 0.3s, -webkit-transform 0.3s;
+  -webkit-transition: opacity 0.3s, -webkit-transform 0.3s;
+  transition: opacity 0.3s, transform 0.3s;
+  -ms-transform: translateY(10px);
+  -webkit-transform: translateY(10px);
+  transform: translateY(10px);
+}
 
+.navbar-collapse ul li:hover a.nav-link:before {
+  opacity: 1;
+  -ms-transform: translateY(0px);
+  -webkit-transform: translateY(0px);
+  transform: translateY(0px);
+  bottom: 0px;
+  background: #8176c0;
+}
 
+.dropdown-item:hover,
+.dropdown-item:focus {
+  color: #ffffff;
+  text-decoration: none;
+  background-color: #8176c0;
+}
+
+.dropdown-menu {
+  border: 0px;
+}
+
+/* General Styles*/
+body {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
