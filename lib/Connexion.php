@@ -31,6 +31,7 @@ function seConnecter(string $psCheminParametresConnexion) : PDO {
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         //$pdo->setAttribute(PDO::ATTR_AUTOCOMMIT, FALSE);
         $pdo->exec("SET NAMES 'UTF8'");
+        echo 'Connexion réussie';
     } catch (PDOException $ex) {
         //echo "<br>" .   $ex->getMessage();
     }

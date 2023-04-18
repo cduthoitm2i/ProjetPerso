@@ -53,8 +53,63 @@ http://localhost:3000/ProjetPersoInfoAvions/views/modele.php -->
     <section>
         <div class="container">
             <h1>Liste production Airbus A220</h1>
-            
-            
+            <?php
+
+            /* Tests.php */
+
+            require_once '../lib/Connexion.php';
+            //require_once '../lib/Transaxion.php';
+            require_once '../daos/clientDAO.php';
+
+            $pdo = seConnecter("../conf/monsite.ini");
+
+            // var_dump ($pdo);
+
+            echo "<hr>Sélection de la base avion<hr>";
+            $content = "";
+            $lines = selectAll($pdo);
+
+            $headers = "";
+
+
+            // Extraction des autres enregistrements et on affiche dans les balises html
+            // On fait le corps du tableau
+            // On boucle sur les colonnes à l'intérieur de la boucle pour les lignes
+            $contents = "";
+            foreach ($lines as $line) {
+                $contents .= "<tr>";
+                foreach ($line as $column) {
+                    $contents .= "<td>$column</td>";
+                }
+                $contents .= "</tr>";
+            }
+            ?>
+
+            <<div class="row py-5">
+    <div class="col-lg-10 mx-auto">
+      <div class="card rounded shadow border-0">
+        <div class="card-body p-5 bg-white rounded">
+          <div class="table-responsive">
+            <table id="example" style="width:100%" class="table table-striped table-bordered">
+              <thead>
+                <tr>
+                  <th>A corriger</th>
+                  <th>A corriger</th>
+                  <th>A corriger</th>
+                </tr>
+              </thead>
+              <tbody>
+                    <?php
+                    echo $contents;
+                    ?>
+                </tbody>
+            </table>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
         </div>
 
     </section>

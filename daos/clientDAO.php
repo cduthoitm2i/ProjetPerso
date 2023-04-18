@@ -12,13 +12,35 @@
  * @param PDO $pdo
  * @return array
  */
+
 function selectAll(PDO $pdo): array {
     /*
      * Renvoie un tableau ordinal de tableaux associatifs
      */
     $list = array();
+
     try {
-        $cursor = $pdo->query("SELECT * FROM avions");
+        // Premier filtre, je sélectionne tous les avions de la liste
+        $cursor = $pdo->query("SELECT * FROM avion");
+        // Deuxième filtre, je sélectionne tous les avions de la liste avec le nom_avion A220
+        $cursor = $pdo->query("SELECT * FROM `avion` WHERE nom_avion = 'A220';");
+        // Troisième filtre, je sélectionne tous les avions de la liste avec le nom_avion A318
+        $cursor = $pdo->query("SELECT * FROM `avion` WHERE nom_avion = 'A318';");
+        // Troisième filtre, je sélectionne tous les avions de la liste avec le nom_avion A318
+        $cursor = $pdo->query("SELECT * FROM `avion` WHERE nom_avion = 'A318';");
+        // Quatrième filtre, je sélectionne tous les avions de la liste avec le modele_avion Airbus A220 CS100
+        $cursor = $pdo->query("SELECT * FROM `avion` WHERE modele_avion = 'Airbus A220 CS100';");
+        // Cinquième filtre, je sélectionne tous les avions de la liste avec la compagnie Delta Airlines
+        $cursor = $pdo->query("SELECT * FROM `avion` WHERE nom_compagnie = 'Delta Airlines';");
+        // Sixième filtre, je sélectionne tous les avions de la liste et je tri par le numéro de série dans l'ordre ascendant
+        $cursor = $pdo->query("SELECT * FROM `avion` ORDER BY `avion`.`numero_serie_avion` ASC");
+        // Septième filtre, je sélectionne certaines informations (modele_avion, nom_avion, numero_serie_avion)
+        $cursor = $pdo->query("SELECT modele_avion, nom_avion, numero_serie_avion FROM `avion` ORDER BY `avion`.`numero_serie_avion` ASC");
+         // Huitième filtre, je sélectionne certaines informations (modele_avion, nom_avion, numero_serie_avion) et j'inverse l'affichage
+         $cursor = $pdo->query("SELECT modele_avion, numero_serie_avion, nom_avion FROM `avion` ORDER BY `avion`.`numero_serie_avion` ASC");
+         // Neuvième filtre, je sélectionne certaines informations (modele_avion, nom_avion, numero_serie_avion) et j'inverse l'affichage
+         $cursor = $pdo->query("SELECT modele_avion, numero_serie_avion, nom_avion FROM `avion` ORDER BY `avion`.`modele_avion` ASC");
+
         // Renvoie un tableau ordinal de tableaux associatifs
         $list = $cursor->fetchAll(PDO::FETCH_ASSOC);
     } catch (PDOException $e) {
@@ -39,7 +61,7 @@ function selectOne(PDO $pdo, string $id): array {
      * Renvoie un tableau associatif
      */
     try {
-        $sql = "SELECT * FROM avions WHERE modele_avion = ?";
+        $sql = "SELECT * FROM avion WHERE modele_avion = ?";
         $cursor = $pdo->prepare($sql);
         $cursor->bindValue(1, $id);
         $cursor->execute();
@@ -126,8 +148,3 @@ function delete(PDO $pdo, string $id): int {
     }
     return $affected;
 }
-
-
-
-
-?>

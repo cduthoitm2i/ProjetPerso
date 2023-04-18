@@ -118,19 +118,19 @@ http://localhost:3000/ProjetPersoInfoAvions/views/modele.php -->
 
                                 <tbody>
                                     <tr>
-                                        <td><a href="../listing/a220.php">Airbus A220</a></td>
-                                        <td><a href="../listing/a300.php">Airbus A300</a></td>
-                                        <td><a href="../listing/a310.php">Airbus A310</a></td>
+                                        <td><a href="../a220.php">Airbus A220</a></td>
+                                        <td><a href="../a300.php">Airbus A300</a></td>
+                                        <td><a href="../a310.php">Airbus A310</a></td>
                                     </tr>
                                     <tr>
-                                        <td><a href="../listing/a318.php">Airbus A318</a></td>
-                                        <td><a href="../listing/a319.php">Airbus A319</a></td>
-                                        <td><a href="../listing/a320.php">Airbus A320</a></td>
+                                        <td><a href="../a318.php">Airbus A318</a></td>
+                                        <td><a href="../a319.php">Airbus A319</a></td>
+                                        <td><a href="../a320.php">Airbus A320</a></td>
                                     </tr>
                                     <tr>
-                                        <td><a href="../listing/a321.php">Airbus A321</a></td>
-                                        <td><a href="../listing/a330.php">Airbus A330</a></td>
-                                        <td><a href="../listing/a340.php">Airbus A340</a></td>
+                                        <td><a href="../a321.php">Airbus A321</a></td>
+                                        <td><a href="../a330.php">Airbus A330</a></td>
+                                        <td><a href="../a340.php">Airbus A340</a></td>
                                     </tr>
                                     <tr>
                                         <td><a href="../listing/a350.php">Airbus A350</a></td>
