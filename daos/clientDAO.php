@@ -18,7 +18,7 @@ function selectAll(PDO $pdo): array {
      */
     $list = array();
     try {
-        $cursor = $pdo->query("SELECT * FROM villes");
+        $cursor = $pdo->query("SELECT * FROM avions");
         // Renvoie un tableau ordinal de tableaux associatifs
         $list = $cursor->fetchAll(PDO::FETCH_ASSOC);
     } catch (PDOException $e) {
@@ -39,7 +39,7 @@ function selectOne(PDO $pdo, string $id): array {
      * Renvoie un tableau associatif
      */
     try {
-        $sql = "SELECT * FROM villes WHERE cp = ?";
+        $sql = "SELECT * FROM avions WHERE modele_avion = ?";
         $cursor = $pdo->prepare($sql);
         $cursor->bindValue(1, $id);
         $cursor->execute();
@@ -51,7 +51,7 @@ function selectOne(PDO $pdo, string $id): array {
         $cursor->closeCursor();
     } catch (PDOException $e) {
         //$line["Error"] = $e->getMessage();
-        $line["Error"] = "Une erreur s'est produite, veuillez téléphoner à votre administrateur de BD, monsieur Antonino !!!";
+        $line["Error"] = "Une erreur s'est produite !!!";
     }
     return $line;
 }
