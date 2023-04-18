@@ -22,7 +22,7 @@ $pdo = seConnecter("../conf/monsite.ini");
 
 // var_dump ($pdo);
 
-echo "<hr>Sélection de la base avion<hr>";
+// echo "<hr>Sélection de la base avion<hr>";
 $content = "";
 $lines = selectAll($pdo);
 
