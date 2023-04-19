@@ -98,12 +98,12 @@
                                 <table id="liste_avion" style="width:100%" class="table table-striped table-bordered">
                                     <thead>
                                         <tr>
-                                            <th>MSN</th>
-                                            <th>Type</th>
-                                            <th>Opérateur</th>
-                                            <th>Premier vol</th>
-                                            <th>Immatriculation</th>
-                                            <th>Statut</th>
+                                            <th style="text-align:center;vertical-align:middle">MSN</th>
+                                            <th style="text-align:center;vertical-align:middle">Type</th>
+                                            <th style="text-align:center;vertical-align:middle">Opérateur</th>
+                                            <th style="text-align:center;vertical-align:middle">Premier vol</th>
+                                            <th style="text-align:center;vertical-align:middle">Immatriculation</th>
+                                            <th style="text-align:center;vertical-align:middle">Statut</th>
                                         </tr>
                                     </thead>
                                     <tbody>
