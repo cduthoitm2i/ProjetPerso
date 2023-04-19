@@ -97,7 +97,7 @@
                     <div class="card rounded shadow border-0">
                         <div class="card-body p-5 bg-white rounded">
                             <div class="table-responsive">
-                                <table id="liste_avion" style="width:100%" class="table table-striped table-bordered">
+                                <table id="liste_avion" style="width:100%" class="table table-bordered table-hover dt-responsive">
                                     <thead>
                                         <tr>
                                             <th style="text-align:center;vertical-align:middle">MSN</th>
@@ -130,13 +130,15 @@
     </footer>
 </body>
 <script>
-    $(document).ready(function() {
-        var table = $('#liste_avion').DataTable({
-            responsive: true
-        });
-
-        new $.fn.dataTable.FixedHeader(table);
-    });
+    $(document).ready( function () {
+  var table = $('#liste_avion').DataTable({
+    "pageLength":25
+  });
+  
+    table.columns().iterator( 'column', function (ctx, idx) {
+    $( table.column(idx).header() ).append('<span class="sort-icon"/>');
+  } );
+} );
 </script>
 
 

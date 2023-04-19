@@ -1,7 +1,8 @@
 <?php
-// define variables and set to empty values
-$genre = $nom = $prenom = $telephone = $email = $email2 = $adresse = $cp = $ville = $user = $mdp = $mdp2 = $newsletter = "";
-$genreErr = $nomErr = $prenomErr = $telephoneErr = $emailErr = $email2Err = $email2bisErr = $adresseErr = $cpErr = $villeErr = $userErr = $mdpErr = $mdp2Err = $mdp2bisErr = $newsletterErr = "";
+// Définition de toutes les variables et affectation à 0 pour toutes
+// Création d'un second lot de variable pour les erreurs
+$genre = $nom = $prenom = $telephone = $email = $email2 = $adresse = $cp = $ville = $user = $mdp = $mdp2 = $newsletter = $sujet = "";
+$genreErr = $nomErr = $prenomErr = $telephoneErr = $emailErr = $email2Err = $email2bisErr = $adresseErr = $cpErr = $villeErr = $userErr = $mdpErr = $mdp2Err = $mdp2bisErr = $newsletterErr = $sujetErr = "";
 
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -104,6 +105,42 @@ function test_input($data)
   $data = htmlspecialchars($data);
   return $data;
 }
+
 ?>
+<?php
+  try {
+            require_once '../lib/Connexion.php';
+            require_once '../daos/userDAO.php';
+            $pdo = seConnecter("../conf/users.ini");
+
+          $tattributesValues = array();
+          $tattributesValues['nom'] = $nom;
+          $tattributesValues['prenom'] = $prenom;
+          $tattributesValues['nom'] = $nom;
+          $tattributesValues['telephone'] = $telephone;
+          $tattributesValues['email'] = $email;
+          $tattributesValues['adresse'] = $adresse;
+          $tattributesValues['cp'] = $cp;
+          $tattributesValues['ville'] = $ville;
+          $tattributesValues['user'] = $user;
+          // Cryptage du mot de passe
+          $mdp = password_hash("mdp", PASSWORD_BCRYPT);
+          $tattributesValues['mdp'] = $mdp;
+
+          $affected = insert($pdo,$tattributesValues);
+          if ($affected === 1){
+            $message = "Votre compte est crée";
+          } else {
+            $message = "Votre compte n'est pas crée";
+          }
+
+
+          } catch (PDOException $e) {
+            $affected = $e->getMessage();
+        }
+        return $affected;
+      
+
+            ?>
 
 include '../views/Inscription.php';

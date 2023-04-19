@@ -29,15 +29,15 @@
         ?>
     </nav>
     <?php
-        include_once "../controllers/AuthentificationCTRL.php";
+    include_once "../controllers/AuthentificationCTRL.php";
     ?>
-    
+
     <section>
         <div class="container">
             <div class="row">
                 <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
                     <div class="well well-sm card border-0 shadow rounded-3 my-5 p-4 p-sm-5">
-                        <form class="form-horizontal" action="" method="post">
+                        <form class="form-horizontal" action="../lib/mail.php" method="post">
                             <fieldset>
                                 <legend class="text-center">Contact</legend>
 
@@ -45,7 +45,7 @@
                                 <div class="form-group">
 
                                     <div class="form-floating mb-3">
-                                        <input class="form-control" id="nom" type="text" placeholder="Nom" aria-label="Nom" value="<?php echo $nom; ?>" name="nom" required>
+                                        <input class="form-control" id="nom" type="text" placeholder="Nom" aria-label="Nom" value="<?php if (isset($_POST['nom'])) echo htmlspecialchars($_POST['nom']);?>" name="nom" required>
                                         <label for="nom" class="col-sm-2 col-form-label">Nom</label>
                                         <span class="error"><?php echo $nomErr; ?></span>
                                     </div>
@@ -55,16 +55,25 @@
                                 <div class="form-group">
 
                                     <div class="form-floating mb-3">
-                                        <input class="form-control" id="prenom" type="text" placeholder="Prénom" aria-label="Prenom" name="prenom" value="<?php echo $prenom; ?>" required>
+                                        <input class="form-control" id="prenom" type="text" placeholder="Prénom" aria-label="Prenom" name="prenom" value="<?php if (isset($_POST['prenom'])) echo htmlspecialchars($_POST['prenom']);?>" required>
                                         <label for="prenom" class="col-sm-2 col-form-label">Prénom</label>
                                         <span class="error"><?php echo $prenomErr; ?></span>
+                                    </div>
+                                </div>
+                                <!-- Sujet du message-->
+                                <div class="form-group">
+
+                                    <div class="form-floating mb-3">
+                                        <input class="form-control" id="sujet" type="text" placeholder="Sujet" aria-label="Sujet" name="sujet" value="<?php if (isset($_POST['sujet'])) echo htmlspecialchars($_POST['sujet']);?>" required>
+                                        <label for="sujet" class="col-sm-2 col-form-label">Sujet du message</label>
+                                        <span class="error"><?php echo $sujetErr; ?></span>
                                     </div>
                                 </div>
 
                                 <!-- Email -->
                                 <div class="form-group">
                                     <div class="form-floating mb-3">
-                                        <input type="email" class="form-control" id="email" placeholder="E-mail" name="email" value="<?php echo $email; ?>" required>
+                                        <input type="email" class="form-control" id="email" placeholder="E-mail" name="email" value="<?php if (isset($_POST['email'])) echo htmlspecialchars($_POST['email']);?>" required>
                                         <label class="sr-only" for="email">E-mail</label>
                                         <span class="error"><?php echo $emailErr; ?></span>
                                     </div>
@@ -73,18 +82,19 @@
                                 <!-- Message -->
                                 <div class="form-group mb-3">
                                     <div class="col-md-12">
-                                        <textarea class="form-control" id="message" name="message" placeholder="Merci de saisir votre message..." rows="5"></textarea>
+                                        <textarea class="form-control" id="message" name="message" placeholder="Merci de saisir votre message..." rows="5"><?php if (isset($_POST['commentaire'])) echo htmlspecialchars($_POST['commentaire']);?></textarea>
                                     </div>
                                 </div>
 
-                                <div class="container">
-                                    <div class="form-floating mb-3">
-                                        <div class="input-group custom-file-button">
-                                            <label class="input-group-text" for="inputGroupFile" placeholder="Choisir un fichier">Parcourir</label>
-                                            <input type="file" accept=".jpg, .png, .gif, .bmp, .tif" class="form-control" id="inputGroupFile">
-                                        </div>
+
+                                <div class="form-floating mb-3">
+                                    <div class="input-group custom-file-button">
+                                        <label class="input-group-text" for="inputGroupFile">Parcourir</label>
+                                        <input type="file" accept=".jpg, .png, .gif, .bmp, .tif" class="form-control" id="inputGroupFile" placeholder="Choisir un fichier">
                                     </div>
                                 </div>
+
+
 
                                 <!-- bouton d'envoi -->
                                 <div class="form-group">
@@ -100,6 +110,7 @@
                 </div>
             </div>
         </div>
+        <!-- -->
     </section>
     <footer>
         <?php

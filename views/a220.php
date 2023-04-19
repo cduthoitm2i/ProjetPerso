@@ -72,7 +72,6 @@
             <h1>Liste production Airbus A220</h1>
             <?php
             require_once '../lib/Connexion.php';
-            //require_once '../lib/Transaxion.php';
             require_once '../daos/clientDAOa220.php';
             $pdo = seConnecter("../conf/monsite.ini");
 
@@ -103,7 +102,6 @@
                     <div class="card rounded shadow border-0">
                         <div class="card-body p-5 bg-white rounded">
                             <div class="table-responsive">
-                                <!--<table id="liste_avion" style="width:100%" class="table table-striped table-bordered">-->
                                 <table id="liste_avion" style="width:100%" class="table table-bordered table-hover dt-responsive">
                                     <thead>
                                         <tr>
@@ -145,7 +143,9 @@
         new $.fn.dataTable.FixedHeader(table);
     });*/
     $(document).ready( function () {
-  var table = $('#liste_avion').DataTable();
+  var table = $('#liste_avion').DataTable({
+    "pageLength":25
+  });
   
     table.columns().iterator( 'column', function (ctx, idx) {
     $( table.column(idx).header() ).append('<span class="sort-icon"/>');

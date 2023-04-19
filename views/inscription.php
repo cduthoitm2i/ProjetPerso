@@ -35,7 +35,7 @@
                     <div class="card border-0 shadow rounded-3 my-5">
                         <div class="card-body p-4 p-sm-5">
                             <h5 class="card-title text-center mb-5 fw-light fs-4">Création d'un compte utilisateur</h5>
-                            <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" class="needs-validation" novalidate>
+                            <form method="POST" action="../controllers/AuthentificationCTRL.php" class="needs-validation" novalidate>
                                 <p><span class="error">* champs requis</span></p>
                                 <div class="row">
 
