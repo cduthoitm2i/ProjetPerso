@@ -21,7 +21,7 @@
         $list = array();
 
         try {
-            $cursor = $pdo->query("SELECT numero_serie_avion, modele_avion, nom_compagnie, date_premier_vol_avion, immatriculation_compagnie_avion, statut_avion FROM `avion` WHERE nom_avion = 'A318'");
+            $cursor = $pdo->query("SELECT numero_serie_avion, modele_avion, nom_compagnie, date_premier_vol_avion, immatriculation_compagnie_avion, statut_avion FROM `avion` WHERE nom_avion = 'A380'");
 
             // Renvoie un tableau ordinal de tableaux associatifs
             $list = $cursor->fetchAll(PDO::FETCH_ASSOC);
@@ -44,7 +44,7 @@
      * Renvoie un tableau associatif
      */
         try {
-            $sql = "SELECT * FROM avion WHERE modele_avion = '?'";
+            $sql = "SELECT * FROM avion WHERE modele_avion = ?";
             $cursor = $pdo->prepare($sql);
             $cursor->bindValue(1, $id);
             $cursor->execute();
