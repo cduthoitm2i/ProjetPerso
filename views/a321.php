@@ -1,6 +1,4 @@
 <!DOCTYPE html>
-<!-- modele.php
-http://localhost:3000/ProjetPersoInfoAvions/views/modele.php -->
 <html lang="fr">
 
 <head>
@@ -12,13 +10,16 @@ http://localhost:3000/ProjetPersoInfoAvions/views/modele.php -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
-    <link src="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"></link>
-    <link src="https://cdn.datatables.net/1.13.4/css/dataTables.bootstrap5.min.css"></link>
+    <link src="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    </link>
+    <link src="https://cdn.datatables.net/1.13.4/css/dataTables.bootstrap5.min.css">
+    </link>
     <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
 
     <!-- Ma CSS -->
     <link rel="stylesheet" href="../css/style.css">
+    <!-- Mon favicon -->
     <link rel="apple-touch-icon-precomposed" sizes="57x57" href="../images/png/apple-touch-icon-57x57.png" />
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../images/png/apple-touch-icon-114x114.png" />
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../images/png/apple-touch-icon-72x72.png" />

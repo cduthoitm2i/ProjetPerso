@@ -1,6 +1,4 @@
 <!DOCTYPE html>
-<!-- modele.php
-http://localhost:3000/ProjetPersoInfoAvions/views/modele.php -->
 <html lang="fr">
 
 <head>
@@ -21,6 +19,7 @@ http://localhost:3000/ProjetPersoInfoAvions/views/modele.php -->
 
     <!-- Ma CSS -->
     <link rel="stylesheet" href="../css/style.css">
+    <!-- Mon favicon -->
     <link rel="apple-touch-icon-precomposed" sizes="57x57" href="../images/png/apple-touch-icon-57x57.png" />
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../images/png/apple-touch-icon-114x114.png" />
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../images/png/apple-touch-icon-72x72.png" />

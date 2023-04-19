@@ -1,7 +1,7 @@
 <?php
 
     /*
- client.php
+clientDAOa380.php
  */
     /*
   DAO de mon projet
