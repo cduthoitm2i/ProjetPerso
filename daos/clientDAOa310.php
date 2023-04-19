@@ -21,7 +21,7 @@ clientDAOa310.php
         $list = array();
 
         try {
-            $cursor = $pdo->query("SELECT numero_serie_avion, modele_avion, nom_compagnie, date_premier_vol_avion, immatriculation_compagnie_avion, statut_avion FROM `avion` WHERE nom_avion = 'A220'");
+            $cursor = $pdo->query("SELECT numero_serie_avion, modele_avion, nom_compagnie, date_premier_vol_avion, immatriculation_compagnie_avion, statut_avion FROM `avion` WHERE nom_avion = 'A310'");
 
             // Renvoie un tableau ordinal de tableaux associatifs
             $list = $cursor->fetchAll(PDO::FETCH_ASSOC);
