@@ -12,7 +12,7 @@ clientDAOa321.php
      * @param PDO $pdo
      * @return array
      */
-
+    /* Adapté à mon projet*/
     function selectAll(PDO $pdo): array
     {
         /*
