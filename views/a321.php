@@ -84,7 +84,7 @@
             foreach ($lines as $line) {
                 $contents .= "<tr>";
                 foreach ($line as $column) {
-                    $contents .= "<td>$column</td>";
+                    $contents .= "<td class='small'>$column</td>";
                 }
                 $contents .= "</tr>";
             }
