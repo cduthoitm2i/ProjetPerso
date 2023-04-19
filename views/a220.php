@@ -91,7 +91,8 @@
                     <div class="card rounded shadow border-0">
                         <div class="card-body p-5 bg-white rounded">
                             <div class="table-responsive">
-                                <table id="liste_avion" style="width:100%" class="table table-striped table-bordered">
+                                <!--<table id="liste_avion" style="width:100%" class="table table-striped table-bordered">-->
+                                <table id="liste_avion" style="width:100%" class="table table-bordered table-hover dt-responsive">
                                     <thead>
                                         <tr>
                                             <th style="text-align:center;vertical-align:middle">MSN</th>
