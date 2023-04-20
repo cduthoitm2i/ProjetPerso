@@ -55,7 +55,7 @@
           <a class="nav-link" href="../views/Login.php">Login</a>
         </li>
       </ul>
-      <form class="d-flex" role="search">
+      <form class="d-flex" role="search" method="GET" action="">
         <input class="form-control me-2" type="search" aria-label="Search">
         <button class="btn btn-outline-success" type="submit">Rechercher</button>
       </form>

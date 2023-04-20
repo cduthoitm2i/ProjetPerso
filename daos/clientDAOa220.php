@@ -32,8 +32,6 @@ clientDAOa220.php
         return $list;
     }
 
-
-    /* A Adapter à mon projet*/
     /**
      *
      * @param PDO $pdo

@@ -40,6 +40,44 @@ userDAO.php
         }
         return $affected;
     }
+    function update(PDO $pdo, array $tAttributesValues): int
+    {
+        $affected = 0;
+        try {
+            $sql = "UPDATE users SET nom='?', prenom= '?', telephone= '?', email= '?', adresse= '?', cp= '?', ville= '?', user= '?', mdp= '?' WHERE user_id=1";
+            $statement = $pdo->prepare($sql);
+
+            $nom = filter_input(INPUT_GET, "nom");
+            $prenom = filter_input(INPUT_GET, "prenom");
+            $telephone = filter_input(INPUT_GET, "telephone");
+            $email = filter_input(INPUT_GET, "email");
+            $adresse = filter_input(INPUT_GET, "adresse");
+            $cp = filter_input(INPUT_GET, "cp");
+            $ville = filter_input(INPUT_GET, "ville");
+            $user = filter_input(INPUT_GET, "user");
+            $mdp = filter_input(INPUT_GET, "mdp");
+
+            $statement = $pdo->prepare($sql);
+
+            $statement->bindParam(1, $nom); // BIND = RELIER
+            $statement->bindParam(2, $prenom);
+            $statement->bindParam(3, $telephone);
+            $statement->bindParam(4, $email);
+            $statement->bindParam(5, $adresse);
+            $statement->bindParam(6, $cp);
+            $statement->bindParam(7, $ville);
+            $statement->bindParam(8, $user);
+            $statement->bindParam(9, $mdp);
+
+
+
+            $statement->execute();
+            $affected = $statement->rowcount();
+        } catch (PDOException $e) {
+            $affected = -1;
+        }
+        return $affected;
+    }
 
 ?>
 

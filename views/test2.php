@@ -1,6 +1,3 @@
-<!DOCTYPE html>
-<html lang="fr">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -20,8 +17,14 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.10.18/datatables.min.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.10.18/datatables.min.css" />
     <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.10.18/datatables.min.js"></script>
+
+
+
+
+
+
 
     <!-- Ma CSS -->
     <link rel="stylesheet" href="../css/style.css">
@@ -47,7 +50,7 @@
     <meta name="msapplication-wide310x150logo" content="mstile-310x150.png" />
     <meta name="msapplication-square310x310logo" content="mstile-310x310.png" />
 
-    <title>Liste production Airbus A330</title>
+    <title>Liste production Airbus A220</title>
 </head>
 
 <body>
@@ -63,23 +66,17 @@
     </nav>
     <section>
         <div class="container">
-            <h1>Liste production Airbus A330</h1>
+            <h1>Liste production Airbus A220</h1>
             <?php
-
-            /* Tests.php */
-
             require_once '../lib/Connexion.php';
-            //require_once '../lib/Transaxion.php';
-            require_once '../daos/clientDAOa330.php';
-
+            // require_once '../daos/clientDAOa220.php';
             $pdo = seConnecter("../conf/monsite.ini");
 
             // var_dump ($pdo);
 
-            //echo "<hr>Sélection de la base avion<hr>";
+            //echo "Sélection de la base avion";
             $content = "";
-            $lines = selectAllPourListeTab($pdo);
-
+            //$lines = selectAllPourListeTab($pdo);
             $headers = "";
 
 
@@ -87,7 +84,7 @@
             // On fait le corps du tableau
             // On boucle sur les colonnes à l'intérieur de la boucle pour les lignes
             try {
-                $query = "SELECT numero_serie_avion, modele_avion, nom_compagnie, date_premier_vol_avion, immatriculation_compagnie_avion, statut_avion FROM `avion` WHERE nom_avion = 'A330'";
+                $query = "SELECT numero_serie_avion, modele_avion, nom_compagnie, date_premier_vol_avion, immatriculation_compagnie_avion, statut_avion FROM `avion` WHERE nom_avion = 'A220'";
                 $result = $pdo->query($query);
             ?>
                 <div class="row py-5">
