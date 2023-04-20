@@ -72,14 +72,14 @@
             <h1>Liste production Airbus A220</h1>
             <?php
             require_once '../lib/Connexion.php';
-            require_once '../daos/clientDAOa220.php';
+            require_once '../daos/DAOupdateDataAvion.php';
             $pdo = seConnecter("../conf/monsite.ini");
 
             // var_dump ($pdo);
 
             //echo "Sélection de la base avion";
             $content = "";
-            $lines = selectAllPourListeTab($pdo);
+            $lines = update($pdo, $tAttributesValues);
             $headers = "";
 
 
@@ -133,24 +133,6 @@
         ?>
     </footer>
 </body>
-<script>
-    /*$(document).ready(function() {
-        var table = $('#liste_avion').DataTable({
-            responsive: true
-        });
-
-        new $.fn.dataTable.FixedHeader(table);
-    });*/
-    $(document).ready(function() {
-        var table = $('#liste_avion').DataTable({
-            "pageLength": 25
-        });
-
-        table.columns().iterator('column', function(ctx, idx) {
-            $(table.column(idx).header()).append('<span class="sort-icon"/>');
-        });
-    });
-</script>
 
 
 </html>

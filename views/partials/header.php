@@ -24,6 +24,7 @@
             <!-- Modification provisoire -->
             <li><a class="dropdown-item" href="../views/FicheAvion.php">Rechercher un avion</a></li>
             <li><a class="dropdown-item" href="../views/Avion_liste_prod.php">Liste de production</a></li>
+            <li><a class="dropdown-item" href="../views/Avion_update.php">Mettre à jour les données d'un avion</a></li>
           </ul>
         </li>
         <li class="nav-item dropdown">
