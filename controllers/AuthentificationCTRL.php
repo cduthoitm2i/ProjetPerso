@@ -142,5 +142,5 @@ function test_input($data)
       
 
             ?>
-
+ <a href="<?php echo $_SERVER['HTTP_REFERER']; ?>">Retour</a>
 include '../views/Inscription.php';

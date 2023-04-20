@@ -4,11 +4,11 @@
 $VotreAdresseMail="cduthoit@live.fr";
 ini_set('SMTP','smtp-cduthoit59.alwaysdata.net');
 ini_set('smtp_port',25);
-// si le bouton "Envoyer" est cliqué
+// si le bouton "submit" est cliqué
 if(isset($_POST['submit'])) {
     //on vérifie que le champ mail est correctement rempli
     if(empty($_POST['mail'])) {
-        echo "Le champ mail est vide";
+        echo "L'adresse mail est obligatoire'";
     } else {
         //on vérifie que l'adresse est correcte
         if(!preg_match("#^[a-z0-9_-]+((\.[a-z0-9_-]+){1,})?@[a-z0-9_-]+((\.[a-z0-9_-]+){1,})?\.[a-z]{2,}$#i",$_POST['mail'])){

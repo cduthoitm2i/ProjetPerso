@@ -20,7 +20,9 @@
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Avion</a>
           <ul class="dropdown-menu dropdown-menu-end dropdown-menu-lg-start">
-            <li><a class="dropdown-item" href="../views/Avion_recherche.php">Rechercher un avion</a></li>
+            <!--<li><a class="dropdown-item" href="../views/Avion_recherche.php">Rechercher un avion</a></li>-->
+            <!-- Modification provisoire -->
+            <li><a class="dropdown-item" href="../views/FicheAvion.php">Rechercher un avion</a></li>
             <li><a class="dropdown-item" href="../views/Avion_liste_prod.php">Liste de production</a></li>
           </ul>
         </li>

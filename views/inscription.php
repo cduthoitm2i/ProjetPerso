@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
     <meta charset="UTF-8">
@@ -24,7 +24,6 @@
         include '../views/partials/nav.php';
         ?>
     </nav>
-
     <?php
     include_once "../controllers/AuthentificationCTRL.php";
     ?>
@@ -38,7 +37,6 @@
                             <form method="POST" action="../controllers/AuthentificationCTRL.php" class="needs-validation" novalidate>
                                 <p><span class="error">* champs requis</span></p>
                                 <div class="row">
-
                                     <div class="col-4">
                                         <input class="form-check-input" type="radio" name="genre" id="genre" value="homme" <?php if (isset($genre) && $genre == "homme") echo "checked"; ?> required>
                                         <label class="form-check-label" for="genre">Monsieur</label>
@@ -58,27 +56,21 @@
                                     <label for="nom" class="col-sm-2 col-form-label">Nom</label>
                                     <span class="error"><?php echo $nomErr; ?></span>
                                 </div>
-
-
                                 <div class="form-floating mb-3">
                                     <input class="form-control" id="prenom" type="text" placeholder="Prénom" aria-label="Prenom" name="prenom" value="<?php echo $prenom; ?>" required>
                                     <label for="prenom" class="col-sm-2 col-form-label">Prénom</label>
                                     <span class="error"><?php echo $prenomErr; ?></span>
                                 </div>
-
-
                                 <div class="form-floating mb-3">
                                     <input type="text" class="form-control" id="telephone" placeholder="Téléphone" name="telephone" value="<?php echo $telephone; ?>" required>
                                     <label for="telephone" class="col-sm-2 col-form-label">Téléphone</label>
                                     <span class="error"><?php echo $telephoneErr; ?></span>
                                 </div>
-
                                 <div class="form-floating mb-3">
                                     <input type="email" class="form-control" id="email" placeholder="E-mail" name="email" value="<?php echo $email; ?>" required>
                                     <label class="sr-only" for="email">E-mail</label>
                                     <span class="error"><?php echo $emailErr; ?></span>
                                 </div>
-
                                 <div class="form-floating mb-3">
                                     <input type="email" class="form-control" id="email2" placeholder="E-mail" name="email2" aria-describedby="Mail2Aide" value="<?php echo $email2; ?>" required>
                                     <label for="email2" class="sr-only col-sm-2 col-form-label">E-mail</label>
@@ -95,8 +87,6 @@
                                     <label for="cp" class="col-sm-2 col-form-label">Code&nbsp;postal&nbsp;:</label>
                                     <span class="error"><?php echo $cpErr; ?></span>
                                 </div>
-
-
                                 <div class="form-floating mb-3">
                                     <input type="text" class="form-control" id="ville" placeholder="Ville" name="ville" value="<?php echo $ville; ?>" required>
                                     <label for="ville" class="col-sm-2 col-form-label">Ville&nbsp;:</label>
@@ -117,7 +107,6 @@
                                     <input type="password" id="mdp2" class="form-control basicAutoComplete" placeholder="Mot de passe" autocomplete="on" name="mdp2" aria-describedby="mdp2Aide" value="<?php echo $mdp2; ?>" required>
                                     <label class="form-label" for="mdp2">Mot de passe&nbsp;:</label>
                                     <small id="mdp2Aide" class="form-text text-muted">Saisir une nouvelle fois votre mot de passe</small>
-
                                     <span class="error"><?php echo $mdp2Err; ?></span>
                                 </div>
                                 <div class="form-check mb-3">
@@ -140,17 +129,11 @@
                                     ?>
                                 </label>
                             </form>
-
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
-
-
-
-
     </section>
     <footer>
         <?php
@@ -158,5 +141,4 @@
         ?>
     </footer>
 </body>
-
 </html>

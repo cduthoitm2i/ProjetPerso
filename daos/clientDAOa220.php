@@ -13,7 +13,7 @@ clientDAOa220.php
      * @return array
      */
     /* Adapté à mon projet*/
-    function selectAll(PDO $pdo): array
+    function selectAllPourListeTab(PDO $pdo): array
     {
         /*
      * Renvoie un tableau ordinal de tableaux associatifs
@@ -31,6 +31,8 @@ clientDAOa220.php
         }
         return $list;
     }
+
+
     /* A Adapter à mon projet*/
     /**
      *
