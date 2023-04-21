@@ -58,8 +58,9 @@ userDAO.php
             $mdp = filter_input(INPUT_GET, "mdp");
 
             $statement = $pdo->prepare($sql);
-
-            $statement->bindParam(1, $nom); // BIND = RELIER
+            
+            // BIND = RELIER
+            $statement->bindParam(1, $nom); 
             $statement->bindParam(2, $prenom);
             $statement->bindParam(3, $telephone);
             $statement->bindParam(4, $email);

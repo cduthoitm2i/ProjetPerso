@@ -99,12 +99,12 @@
                                     <span class="error"><?php echo $userErr; ?></span>
                                 </div>
                                 <div class="form-floating mb-3">
-                                    <input type="password" id="mdp" class="form-control" placeholder="Mot de passe" autocomplete="on" name="mdp" value="<?php echo $mdp; ?>" required>
+                                    <input type="password" id="mdp" class="form-control" placeholder="Mot de passe" autocomplete="on" name="mdp" value="" required>
                                     <label class="form-label" for="mdp">Mot de passe&nbsp;:</label>
                                     <span class="error"><?php echo $mdpErr; ?></span>
                                 </div>
                                 <div class="form-floating mb-3">
-                                    <input type="password" id="mdp2" class="form-control basicAutoComplete" placeholder="Mot de passe" autocomplete="on" name="mdp2" aria-describedby="mdp2Aide" value="<?php echo $mdp2; ?>" required>
+                                    <input type="password" id="mdp2" class="form-control basicAutoComplete" placeholder="Mot de passe" autocomplete="on" name="mdp2" aria-describedby="mdp2Aide" value="" required>
                                     <label class="form-label" for="mdp2">Mot de passe&nbsp;:</label>
                                     <small id="mdp2Aide" class="form-text text-muted">Saisir une nouvelle fois votre mot de passe</small>
                                     <span class="error"><?php echo $mdp2Err; ?></span>

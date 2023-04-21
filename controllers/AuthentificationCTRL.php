@@ -111,7 +111,7 @@ function test_input($data)
   try {
             require_once '../lib/Connexion.php';
             require_once '../daos/userDAO.php';
-            $pdo = seConnecter("../conf/users.ini");
+            $pdo = seConnecter("../conf/monsite.ini");
 
           $tattributesValues = array();
           $tattributesValues['nom'] = $nom;
@@ -143,4 +143,6 @@ function test_input($data)
 
             ?>
  <a href="<?php echo $_SERVER['HTTP_REFERER']; ?>">Retour</a>
+<?php
 include '../views/Inscription.php';
+?>

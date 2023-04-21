@@ -167,7 +167,7 @@ body {
 }
 
 
-
+/* CSS pour liste en tableau */
 
 table.dataTable thead th {
   background: transparent !important;
@@ -215,3 +215,4 @@ table.dataTable thead .sorting_asc_disabled:after,
 table.dataTable thead .sorting_desc_disabled:after {
   content: '';
 }
+
