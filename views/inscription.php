@@ -24,9 +24,154 @@
         include '../views/partials/nav.php';
         ?>
     </nav>
-    <?php
-    include_once "../controllers/AuthentificationCTRL.php";
-    ?>
+    <?php require_once("../inc/init.inc.php");
+
+
+//--------------------------------- TRAITEMENTS PHP ---------------------------------//
+$civilite = $nom = $prenom = $telephone = $email = $email2 = $adresse = $cp = $ville = $pseudo = $mdp = $mdp2 = $newsletter = $sujet = "";
+$civiliteErr = $nomErr = $prenomErr = $telephoneErr = $emailErr = $email2Err = $email2bisErr = $adresseErr = $cpErr = $villeErr = $pseudoErr = $mdpErr = $mdp2Err = $mdp2bisErr = $newsletterErr = $sujetErr = "";
+
+if($_POST)
+{
+    //debug($_POST);
+    $verif_caractere = preg_match('#^[a-zA-Z0-9._-]+$#', $_POST['pseudo']); 
+    if(!$verif_caractere && (strlen($_POST['pseudo']) < 1 || strlen($_POST['pseudo']) > 20) ) // 
+    {
+        $contenu .= "<div class='erreur'>Le pseudo doit contenir entre 1 et 20 caractères. <br> Caractère accepté : Lettre de A à Z et chiffre de 0 à 9</div>";
+    }
+    if (empty($_POST["civilite"])) {
+        $civiliteErr = "*&nbsp;Civilité est obligatoire";
+      } else {
+        $civilite = test_input($_POST["civilite"]);
+      }
+      if (empty($_POST["nom"])) {
+        $nomErr = "*&nbsp;Renseigner votre nom";
+      } else {
+        $nom = test_input($_POST["nom"]);
+      }
+      if (empty($_POST["prenom"])) {
+        $prenomErr = "*&nbsp;Renseigner votre prénom";
+      } else {
+        $prenom = test_input($_POST["prenom"]);
+      }
+      if (empty($_POST["telephone"])) {
+        $telephoneErr = "*&nbsp;Renseigner votre numéro de téléphone";
+      } else {
+        $telephone = test_input($_POST["telephone"]);
+        if (preg_match("@^(0[1-9](-| |)([0-9]{2}(-| |)){3}[0-9]{2})$@", "$telephone")) {
+          $telephone = test_input($_POST["telephone"]);
+        } else {
+          $telephoneErr = "*&nbsp;Le numéro de téléphone n'est pas correct";
+        }
+      }
+    
+      if (empty($_POST["email"])) {
+        $emailErr = "*&nbsp;Email a renseigné";
+      } else {
+        $email = test_input($_POST["email"]);
+        // check if e-mail address is well-formed
+        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+          $emailErr = "*&nbsp;format invalide de l'email";
+        }
+      }
+      if (empty($_POST["email2"])) {
+        $email2Err = "<br>*&nbsp;Email a renseigné";
+      } else {
+        $email2 = test_input($_POST["email2"]);
+        // check if e-mail address is well-formed
+        if (!filter_var($email2, FILTER_VALIDATE_EMAIL)) {
+          $email2Err = "<br>*&nbsp;format invalide de l'email";
+        }
+      }
+      if ($email <> $email2) {
+        $email2bisErr = "<br>*&nbsp;Les deux adresses mails sont différentes";
+      }
+      if (empty($_POST["adresse"])) {
+        $adresseErr = "*&nbsp;Renseigner votre adresse";
+      } else {
+        $adresse = test_input($_POST["adresse"]);
+      }
+      if (empty($_POST["cp"])) {
+        $cpErr = "*&nbsp;Renseigner votre code postal";
+      } else {
+        $cp = test_input($_POST["cp"]);
+      }
+      if (empty($_POST["ville"])) {
+        $villeErr = "*&nbsp;Renseigner votre ville";
+      } else {
+        $ville = test_input($_POST["ville"]);
+      }
+      if (empty($_POST["pseudo"])) {
+        $pseudoErr = "*&nbsp;Renseigner votre nom d'utilisateur";
+      } else {
+        $peudo = test_input($_POST["pseudo"]);
+      }
+    
+    
+      if (empty($_POST["mdp"])) {
+        $mdpErr = "<br>*&nbsp;Mot de passe a renseigner";
+      } else {
+        $mdp = test_input($_POST["mdp"]);
+        // test si password ok
+        if(!preg_match("/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/", $mdp)) {
+          $mdpErr = "*&nbsp;Le mot de passe n'est pas correct";
+          }
+      }
+      if (empty($_POST["mdp2"])) {
+        $mdp2Err = "<br>*&nbsp;Mot de passe a renseigner";
+      } else {
+        $mdp2 = test_input($_POST["mdp2"]);
+        // test si password ok
+        if(!preg_match("/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/", $mdp2)) {
+          $mdp2Err = "<br>*&nbsp;Le mot de passe n'est pas correct";
+          }
+      }
+      if ($mdp <> $mdp2) {
+        $mdp2bisErr = "<br>*&nbsp;Les deux mots de passe sont différentes";
+      }
+    else
+    {
+        $membre = executeRequete("SELECT * FROM membre WHERE pseudo='$_POST[pseudo]'");
+        if($membre->num_rows > 0)
+        {
+            $contenu .= "<div class='erreur'>Pseudo indisponible. Veuillez en choisir un autre svp.</div>";
+        }
+        else
+        {
+            
+            // $_POST['mdp'] = md5($_POST['mdp']);
+            foreach($_POST as $indice => $valeur)
+            {
+                $_POST[$indice] = htmlEntities(addSlashes($valeur));
+            }
+            $tattributesValues = array();
+            $tattributesValues['nom'] = $nom;
+            $tattributesValues['prenom'] = $prenom;
+            $tattributesValues['nom'] = $nom;
+            $tattributesValues['telephone'] = $telephone;
+            $tattributesValues['email'] = $email;
+            $tattributesValues['adresse'] = $adresse;
+            $tattributesValues['cp'] = $cp;
+            $tattributesValues['ville'] = $ville;
+            $tattributesValues['pseudo'] = $pseudo;
+            // Cryptage du mot de passe
+            $mdp = password_hash("mdp", PASSWORD_BCRYPT);
+            $tattributesValues['mdp'] = $mdp;
+            executeRequete("INSERT INTO membre (pseudo, mdp, nom, prenom, email, civilite, ville, cp, adresse) VALUES ('$_POST[pseudo]', '$_POST[mdp]', '$_POST[nom]', '$_POST[prenom]', '$_POST[email]', '$_POST[civilite]', '$_POST[ville]', '$_POST[cp]', '$_POST[adresse]')");
+            $contenu .= "<div class='validation'>Vous êtes inscrit à notre site web. <a href=\"connexion.php\"><u>Cliquez ici pour vous connecter</u></a></div>";
+        }
+    }
+}
+
+function test_input($data)
+{
+  $data = trim($data);
+  $data = stripslashes($data);
+  $data = htmlspecialchars($data);
+  return $data;
+}
+//--------------------------------- AFFICHAGE HTML ---------------------------------//
+?>
     <section>
         <div class="container">
             <div class="row">
@@ -34,23 +179,32 @@
                     <div class="card border-0 shadow rounded-3 my-5">
                         <div class="card-body p-4 p-sm-5">
                             <h5 class="card-title text-center mb-5 fw-light fs-4">Création d'un compte utilisateur</h5>
-                            <form method="POST" action="../controllers/AuthentificationCTRL.php" class="needs-validation" novalidate>
+                            <form method="POST" action="" class="needs-validation" novalidate>
                                 <p><span class="error">* champs requis</span></p>
+                                <div class="form-floating mb-3">
+                                    <!-- Modifier en type text car ce n'est pas sécurisé pour le login, on préférera pour une inscription -->
+                                    <input type="text" id="user" class="form-control" placeholder="Identifiant" name="pseudo" maxlength="20" pattern="[a-zA-Z0-9-_.]{1,20}" value="<?php echo $pseudo; ?>" required>
+                                    <label class="form-label" for="user">Pseudo&nbsp;:</label>
+                                    <span class="error"><?php echo $pseudoErr; ?></span>
+                                </div>
+                                <div class="form-floating mb-3">
+                                    <input type="password" id="mdp" class="form-control" placeholder="Mot de passe" autocomplete="on" name="mdp" value="" required>
+                                    <label class="form-label" for="mdp">Mot de passe&nbsp;:</label>
+                                    <span class="error"><?php echo $mdpErr; ?></span>
+                                </div>
+                                <div class="form-floating mb-3">
+                                    <input type="password" id="mdp2" class="form-control basicAutoComplete" placeholder="Mot de passe" autocomplete="on" name="mdp2" aria-describedby="mdp2Aide" value="" required>
+                                    <label class="form-label" for="mdp2">Mot de passe&nbsp;:</label>
+                                    <small id="mdp2Aide" class="form-text text-muted">Saisir une nouvelle fois votre mot de passe</small>
+                                    <span class="error"><?php echo $mdp2Err; ?></span>
+                                </div>
                                 <div class="row">
-                                    <div class="col-4">
-                                        <input class="form-check-input" type="radio" name="genre" id="genre" value="homme" <?php if (isset($genre) && $genre == "homme") echo "checked"; ?> required>
-                                        <label class="form-check-label" for="genre">Monsieur</label>
-                                    </div>
-                                    <div class="col-4">
-                                        <input class="form-check-input" type="radio" name="genre" id="genre" value="femme" <?php if (isset($genre) && $genre == "femme") echo "checked"; ?> required>
-                                        <label class="form-check-label" for="genre2">Madame</label>
-                                    </div>
-                                    <div class="col-4">
-                                        <input class="form-check-input" type="radio" name="genre" id="genre" value="autre" <?php if (isset($genre) && $genre == "autre") echo "checked"; ?> required>
-                                        <label class="form-check-label" for="genre2">Autres</label>
+                                    <div class="col-12>
+                                        <label class="form-check-label" for="civilite">Civilité&nbsp;:</label>
+                                        <input class="form-check-input" type="radio" name="civilite" checked="" value="m" <?php if (isset($civilite) && $civilite == "m") echo "checked"; ?> required> Monsieur</input>&nbsp;
+                                        <input class="form-check-input" type="radio" name="civilite" value="f" <?php if (isset($civilite) && $civilite == "f") echo "checked"; ?> required> Madame</input>&nbsp;
                                     </div>
                                 </div>
-                                <br>
                                 <div class="form-floating mb-3">
                                     <input class="form-control" id="nom" type="text" placeholder="Nom" aria-label="Nom" value="<?php echo $nom; ?>" name="nom" required>
                                     <label for="nom" class="col-sm-2 col-form-label">Nom</label>
@@ -78,7 +232,7 @@
                                     <span class="error"><?php echo $email2Err; ?><?php echo $email2bisErr; ?></span>
                                 </div>
                                 <div class="form-floating mb-3">
-                                    <input type="text" class="form-control" id="adresse" placeholder="Adresse" name="adresse" value="<?php echo $adresse; ?>" required>
+                                    <input type="text" class="form-control" id="adresse" placeholder="Adresse" name="adresse" pattern="[a-zA-Z0-9-_.]{5,15}" title="caractères acceptés :  a-zA-Z0-9-_." value="<?php echo $adresse; ?>" required>
                                     <label for="adresse" class="col-sm-2 col-form-label">Adresse</label>
                                     <span class="error"><?php echo $adresseErr; ?></span>
                                 </div>
@@ -88,26 +242,9 @@
                                     <span class="error"><?php echo $cpErr; ?></span>
                                 </div>
                                 <div class="form-floating mb-3">
-                                    <input type="text" class="form-control" id="ville" placeholder="Ville" name="ville" value="<?php echo $ville; ?>" required>
+                                    <input type="text" class="form-control" id="ville" placeholder="Ville" pattern="[a-zA-Z0-9-_.]{5,15}" name="ville" value="<?php echo $ville; ?>" required>
                                     <label for="ville" class="col-sm-2 col-form-label">Ville&nbsp;:</label>
                                     <span class="error"><?php echo $villeErr; ?></span>
-                                </div>
-                                <div class="form-floating mb-3">
-                                    <!-- Modifier en type text car ce n'est pas sécurisé pour le login, on préférera pour une inscription -->
-                                    <input type="text" id="user" class="form-control" placeholder="Identifiant" name="user" value="<?php echo $user; ?>" required>
-                                    <label class="form-label" for="user">Utilisateur&nbsp;:</label>
-                                    <span class="error"><?php echo $userErr; ?></span>
-                                </div>
-                                <div class="form-floating mb-3">
-                                    <input type="password" id="mdp" class="form-control" placeholder="Mot de passe" autocomplete="on" name="mdp" value="" required>
-                                    <label class="form-label" for="mdp">Mot de passe&nbsp;:</label>
-                                    <span class="error"><?php echo $mdpErr; ?></span>
-                                </div>
-                                <div class="form-floating mb-3">
-                                    <input type="password" id="mdp2" class="form-control basicAutoComplete" placeholder="Mot de passe" autocomplete="on" name="mdp2" aria-describedby="mdp2Aide" value="" required>
-                                    <label class="form-label" for="mdp2">Mot de passe&nbsp;:</label>
-                                    <small id="mdp2Aide" class="form-text text-muted">Saisir une nouvelle fois votre mot de passe</small>
-                                    <span class="error"><?php echo $mdp2Err; ?></span>
                                 </div>
                                 <div class="form-check mb-3">
                                     <input class="form-check-input" type="checkbox" value="" id="rememberPasswordCheck">

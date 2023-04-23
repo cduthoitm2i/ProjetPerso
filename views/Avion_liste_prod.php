@@ -72,6 +72,7 @@
             <h1>Liste de production</h1>
             <?php
             require_once '../lib/Connexion.php';
+            //require_once '../inc/init.inc.php';
             //require_once '../lib/Transaxion.php';
             require_once '../daos/clientDAOprod.php';
             $pdo = seConnecter("../conf/monsite.ini");

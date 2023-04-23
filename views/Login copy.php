@@ -29,63 +29,15 @@ http://localhost:3000/ProjetPersoInfoAvions/views/modele.php -->
         /* include './partials/nav.php'; */
         include '../views/partials/nav.php';
         ?>
-        <?php require_once("../inc/init.inc.php");
-        if(isset($_GET['action']) && $_GET['action'] == "deconnexion")
-        {
-            session_destroy();
-        }
-        if(internauteEstConnecte())
-        {
-            header("location:profil.php");
-        }
-        if($_POST)
-        {
-            // $contenu .=  "pseudo : " . $_POST['pseudo'] . "<br>mdp : " .  $_POST['mdp'] . "";
-            $resultat = executeRequete("SELECT * FROM membre WHERE pseudo='$_POST[pseudo]'");
-            if($resultat->num_rows != 0)
-            {
-                $contenu .=  '<div style="background:green">pseudo connu!</div>';
-                $membre = $resultat->fetch_assoc();
-                if($membre['mdp'] == $_POST['mdp'])
-                {
-                    $contenu .= '<div class="validation">mdp connu!</div>';
-                    foreach($membre as $indice => $element)
-                    {
-                        if($indice != 'mdp')
-                        {
-                            $_SESSION['membre'][$indice] = $element;
-                        }
-                    }
-                    header("location:profil.php");
-                }
-                else
-                {
-                    $contenu .= '<div class="erreur">Erreur de MDP</div>';
-                }       
-            }
-            else
-            {
-                $contenu .= '<div class="erreur">Erreur de pseudo</div>';
-            }
-        }
-        //--------------------------------- AFFICHAGE HTML ---------------------------------//
-        
-        
-        
-        ?>
-
     </nav>
     <section>
-    <!-- Pour contrôler les pseudo et mot de passe que tout fonctionne correctement -->
-    <!-- Si tout fonctionne on affiche le header -->
-    <!--<?php echo $contenu; ?>-->
         <div class="container">
             <div class="row">
                 <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
                     <div class="card border-0 shadow rounded-3 my-5">
                         <div class="card-body p-4 p-sm-5">
                             <h5 class="card-title text-center mb-5 fw-light fs-4">Authentification</h5>
-                            <form method="POST" action="">
+                            <form method="POST" action="../controllers/LoginCTRL.php">
                                 <div class="form-floating mb-3">
                                     <!-- Modifier en type text car ce n'est pas sécurisé pour le login, on préférera pour une inscription -->
                                     <input type="text" id="pseudo" class="form-control" placeholder="Identifiant" name="pseudo" aria-describedby="IdentifiantAide" required />
@@ -93,7 +45,7 @@ http://localhost:3000/ProjetPersoInfoAvions/views/modele.php -->
                                     <small id="IdentifiantAide" class="form-text text-muted">Saisir votre identifiant</small>
                                 </div>
                                 <div class="form-floating mb-3">
-                                    <input type="password" id="mdp" class="form-control" placeholder="Mot de passe" autocomplete="on" name="mdp" aria-describedby="mdpAide" required />
+                                    <input type="password" id="mdp" class="form-control" placeholder="Mot de passe" autocomplete="on" name="password" aria-describedby="mdpAide" required />
                                     <label class="form-label" for="mdp">Mot de passe&nbsp;:</label>
                                     <small id="mdpAide" class="form-text text-muted">Saisir votre mot de passe</small>
                                 </div>

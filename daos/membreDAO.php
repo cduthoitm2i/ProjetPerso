@@ -20,7 +20,7 @@ userDAO.php
     {
         $affected = 0;
         try {
-            $sql = "INSERT INTO users(nom,prenom,telephone,email,adresse,cp,ville,user,mdp) VALUES(?,?,?,?,?,?,?,?,?)";
+            $sql = "INSERT INTO users(nom,prenom,telephone,email,adresse,cp,ville,pseudo,mdp) VALUES(?,?,?,?,?,?,?,?,?)";
             $statement = $pdo->prepare($sql);
 
             $statement->bindValue(1, $tAttributesValues["nom"]);
@@ -30,7 +30,7 @@ userDAO.php
             $statement->bindValue(5, $tAttributesValues["adresse"]);
             $statement->bindValue(6, $tAttributesValues["cp"]);
             $statement->bindValue(7, $tAttributesValues["ville"]);
-            $statement->bindValue(8, $tAttributesValues["user"]);
+            $statement->bindValue(8, $tAttributesValues["pseudo"]);
             $statement->bindValue(9, $tAttributesValues["mdp"]);
 
             $statement->execute();
@@ -44,7 +44,7 @@ userDAO.php
     {
         $affected = 0;
         try {
-            $sql = "UPDATE users SET nom='?', prenom= '?', telephone= '?', email= '?', adresse= '?', cp= '?', ville= '?', user= '?', mdp= '?' WHERE user_id=1";
+            $sql = "UPDATE users SET nom='?', prenom= '?', telephone= '?', email= '?', adresse= '?', cp= '?', ville= '?', pseudo= '?', mdp= '?' WHERE pseudo=1";
             $statement = $pdo->prepare($sql);
 
             $nom = filter_input(INPUT_GET, "nom");
@@ -54,7 +54,7 @@ userDAO.php
             $adresse = filter_input(INPUT_GET, "adresse");
             $cp = filter_input(INPUT_GET, "cp");
             $ville = filter_input(INPUT_GET, "ville");
-            $user = filter_input(INPUT_GET, "user");
+            $pseudo = filter_input(INPUT_GET, "pseudo");
             $mdp = filter_input(INPUT_GET, "mdp");
 
             $statement = $pdo->prepare($sql);
@@ -67,7 +67,7 @@ userDAO.php
             $statement->bindParam(5, $adresse);
             $statement->bindParam(6, $cp);
             $statement->bindParam(7, $ville);
-            $statement->bindParam(8, $user);
+            $statement->bindParam(8, $pseudo);
             $statement->bindParam(9, $mdp);
 
 

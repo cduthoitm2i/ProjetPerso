@@ -1,15 +1,15 @@
 <?php
 // Définition de toutes les variables et affectation à 0 pour toutes
 // Création d'un second lot de variable pour les erreurs
-$genre = $nom = $prenom = $telephone = $email = $email2 = $adresse = $cp = $ville = $pseudo = $mdp = $mdp2 = $newsletter = $sujet = "";
-$genreErr = $nomErr = $prenomErr = $telephoneErr = $emailErr = $email2Err = $email2bisErr = $adresseErr = $cpErr = $villeErr = $pseudo = $mdpErr = $mdp2Err = $mdp2bisErr = $newsletterErr = $sujetErr = "";
+$civilite = $nom = $prenom = $telephone = $email = $email2 = $adresse = $cp = $ville = $pseudo = $mdp = $mdp2 = $newsletter = $sujet = "";
+$civiliteErr = $nomErr = $prenomErr = $telephoneErr = $emailErr = $email2Err = $email2bisErr = $adresseErr = $cpErr = $villeErr = $pseudoErr = $mdpErr = $mdp2Err = $mdp2bisErr = $newsletterErr = $sujetErr = "";
 
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-  if (empty($_POST["genre"])) {
-    $genreErr = "*&nbsp;Genre est obligatoire";
+  if (empty($_POST["civilite"])) {
+    $civiliteErr = "*&nbsp;Civilité est obligatoire";
   } else {
-    $genre = test_input($_POST["genre"]);
+    $civilite = test_input($_POST["civilite"]);
   }
   if (empty($_POST["nom"])) {
     $nomErr = "*&nbsp;Renseigner votre nom";
@@ -71,7 +71,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   if (empty($_POST["pseudo"])) {
     $pseudoErr = "*&nbsp;Renseigner votre nom d'utilisateur";
   } else {
-    $pseudo = test_input($_POST["pseudo"]);
+    $peudo = test_input($_POST["pseudo"]);
   }
 
 
@@ -111,7 +111,7 @@ function test_input($data)
   try {
             require_once '../lib/Connexion.php';
             require_once '../daos/membreDAO.php';
-            $pdo = seConnecter("../conf/users.ini");
+            $pdo = seConnecter("../conf/monsite.ini");
 
           $tattributesValues = array();
           $tattributesValues['nom'] = $nom;
@@ -127,11 +127,11 @@ function test_input($data)
           $mdp = password_hash("mdp", PASSWORD_BCRYPT);
           $tattributesValues['mdp'] = $mdp;
 
-          $affected = update($pdo,$tattributesValues);
+          $affected = insert($pdo,$tattributesValues);
           if ($affected === 1){
-            $message = "Votre compte est modifié";
+            $message = "Votre compte est crée";
           } else {
-            $message = "Votre compte n'est pas modifié";
+            $message = "Votre compte n'est pas crée";
           }
 
 
@@ -143,6 +143,6 @@ function test_input($data)
 
             ?>
  <a href="<?php echo $_SERVER['HTTP_REFERER']; ?>">Retour</a>
-<?php 
-  include '../views/Inscription.php';
+<?php
+include '../views/Inscription.php';
 ?>

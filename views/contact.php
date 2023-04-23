@@ -3,7 +3,7 @@
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
     <meta charset="UTF-8">
@@ -29,7 +29,8 @@
         ?>
     </nav>
     <?php
-    include_once "../controllers/AuthentificationCTRL.php";
+    //include_once "../controllers/AuthentificationCTRL.php";
+    require_once("../inc/init.inc.php");
     ?>
 
     <section>
@@ -47,7 +48,7 @@
                                     <div class="form-floating mb-3">
                                         <input class="form-control" id="nom" type="text" placeholder="Nom" aria-label="Nom" value="<?php if (isset($_POST['nom'])) echo htmlspecialchars($_POST['nom']);?>" name="nom" required>
                                         <label for="nom" class="col-sm-2 col-form-label">Nom</label>
-                                        <span class="error"><?php echo $nomErr; ?></span>
+                                        <!--<span class="error"><?php echo $nomErr; ?></span>-->
                                     </div>
                                 </div>
 
@@ -57,7 +58,7 @@
                                     <div class="form-floating mb-3">
                                         <input class="form-control" id="prenom" type="text" placeholder="Prénom" aria-label="Prenom" name="prenom" value="<?php if (isset($_POST['prenom'])) echo htmlspecialchars($_POST['prenom']);?>" required>
                                         <label for="prenom" class="col-sm-2 col-form-label">Prénom</label>
-                                        <span class="error"><?php echo $prenomErr; ?></span>
+                                        <!--<span class="error"><?php echo $prenomErr; ?></span>-->
                                     </div>
                                 </div>
                                 <!-- Sujet du message-->
@@ -66,7 +67,7 @@
                                     <div class="form-floating mb-3">
                                         <input class="form-control" id="sujet" type="text" placeholder="Sujet" aria-label="Sujet" name="sujet" value="<?php if (isset($_POST['sujet'])) echo htmlspecialchars($_POST['sujet']);?>" required>
                                         <label for="sujet" class="col-sm-2 col-form-label">Sujet du message</label>
-                                        <span class="error"><?php echo $sujetErr; ?></span>
+                                        <!--<span class="error"><?php echo $sujetErr; ?></span>-->
                                     </div>
                                 </div>
 
@@ -75,7 +76,7 @@
                                     <div class="form-floating mb-3">
                                         <input type="email" class="form-control" id="email" placeholder="E-mail" name="email" value="<?php if (isset($_POST['email'])) echo htmlspecialchars($_POST['email']);?>" required>
                                         <label class="sr-only" for="email">E-mail</label>
-                                        <span class="error"><?php echo $emailErr; ?></span>
+                                        <!--<span class="error"><?php echo $emailErr; ?></span>-->
                                     </div>
                                 </div>
 
