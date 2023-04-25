@@ -73,6 +73,7 @@
             <?php
             require_once '../lib/Connexion.php';
             //require_once '../inc/init.inc.php';
+            //require_once '../inc/fonction.inc.php';
             //require_once '../lib/Transaxion.php';
             require_once '../daos/clientDAOprod.php';
             $pdo = seConnecter("../conf/monsite.ini");
@@ -104,7 +105,6 @@
                     <div class="card rounded shadow border-0">
                         <div class="card-body p-5 bg-white rounded">
                             <div class="table-responsive">
-                                <!--<table id="liste_avion" style="width:100%" class="table table-striped table-bordered">-->
                                 <table id="liste_avion" style="width:100%" class="table table-bordered table-hover dt-responsive">
                                     <thead>
                                         <tr>

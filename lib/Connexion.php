@@ -38,39 +38,6 @@ function seConnecter(string $psCheminParametresConnexion) : PDO {
     }
     return $pdo;
 }
-/**
- * fonction pour exécuter une requête (pour échanger des informations avec la base à faire certainement plusieurs fois par page web, pour faciliter un peu la vie avec une fonction déjà prête.)
- */
-function executeRequete($req)
-{
-    global $mysqli;
-    $resultat = $mysqli->query($req);
-    if(!$resultat) // 
-    {
-        die("Erreur sur la requete sql.<br>Message : " . $mysqli->error . "<br>Code: " . $req);
-    }
-    return $resultat; // 
-}
-
-/**
- * fonction pour debug (var_dump ou print_r pour voir le contenu d'un tableau array, d'un objet ou de variables, nous allons donc prévoir un code en conséquence afin de gagner du temps.)
- */
-function debug($var, $mode = 1)
-{
-    echo '<div style="background: orange; padding: 5px; float: right; clear: both; ">';
-    $trace = debug_backtrace();
-    $trace = array_shift($trace);
-    echo 'Debug demandé dans le fichier : $trace[file] à la ligne $trace[line].';
-    if($mode === 1)
-    {
-        echo '<pre>'; print_r($var); echo '</pre>';
-    }
-    else
-    {
-        echo '<pre>'; var_dump($var); echo '</pre>';
-    }
-    echo '</div>';
-}
 
 /**
  *

@@ -5,7 +5,7 @@ if ($mysqli->connect_error) die('Un problème est survenu lors de la tentative d
 $mysqli->set_charset("utf8");
  
 //--------- SESSION
-session_start();
+//session_start();
  
 //--------- CHEMIN
 define("RACINE_SITE","/ProjetPersoInfoAvions/");

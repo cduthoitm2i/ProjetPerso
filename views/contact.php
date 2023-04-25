@@ -87,16 +87,6 @@
                                     </div>
                                 </div>
 
-
-                                <div class="form-floating mb-3">
-                                    <div class="input-group custom-file-button">
-                                        <label class="input-group-text" for="inputGroupFile">Parcourir</label>
-                                        <input type="file" accept=".jpg, .png, .gif, .bmp, .tif" class="form-control" id="inputGroupFile" placeholder="Choisir un fichier">
-                                    </div>
-                                </div>
-
-
-
                                 <!-- bouton d'envoi -->
                                 <div class="form-group">
                                     <div class="form-group form-floating mb-3">

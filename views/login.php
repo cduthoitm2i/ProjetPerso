@@ -25,60 +25,48 @@ http://localhost:3000/ProjetPersoInfoAvions/views/modele.php -->
     </header>
     <nav>
         <?php
-        /* Modification de l'appel du document car ne fonctionne pas*/
-        /* include './partials/nav.php'; */
-        include '../views/partials/nav.php';
-        ?>
-        <?php require_once("../inc/init.inc.php");
-        if(isset($_GET['action']) && $_GET['action'] == "deconnexion")
-        {
-            session_destroy();
-        }
-        if(internauteEstConnecte())
-        {
-            header("location:profil.php");
-        }
-        if($_POST)
-        {
-            // $contenu .=  "pseudo : " . $_POST['pseudo'] . "<br>mdp : " .  $_POST['mdp'] . "";
-            $resultat = executeRequete("SELECT * FROM membre WHERE pseudo='$_POST[pseudo]'");
-            if($resultat->num_rows != 0)
-            {
-                $contenu .=  '<div style="background:green">pseudo connu!</div>';
-                $membre = $resultat->fetch_assoc();
-                if($membre['mdp'] == $_POST['mdp'])
-                {
-                    $contenu .= '<div class="validation">mdp connu!</div>';
-                    foreach($membre as $indice => $element)
-                    {
-                        if($indice != 'mdp')
-                        {
-                            $_SESSION['membre'][$indice] = $element;
-                        }
-                    }
-                    header("location:profil.php");
+        $submit = filter_input(INPUT_POST, "submit");
+
+        if ($submit != null) {
+            $pseudo = filter_input(INPUT_POST, "pseudo");
+            $mdp = filter_input(INPUT_POST, "mdp");
+            // On test si les deux champs ne sont pas vide, sinon on mettrait un required dans la balise input
+            if ($pseudo == null || $mdp == null) {
+                setcookie("pseudo", "");
+                setcookie("mdp", "");
+                $message = "Toutes les saisies sont obligatoires";
+            } else {
+                $message = "Jusque là tout va bien !!!";
+                // On test si le bouton "Se souvenir de moi est coché", on reprend la valeur remember de la balise input
+                $remember = filter_input(INPUT_POST, "remember");
+                // On test si c'est coché
+                if ($remember != null) {
+                    $message = "Coché !!!";
+                    // On affecte les cookies pour les deux variables (3600 secondes, 24 heures, 7 jours, soit expire dans 7 jours)
+                    setcookie("pseudo", $pseudo, time() + (3600 * 24 * 7));
+                    setcookie("mdp", $mdp, time() + (3600 * 24 * 7));
+                } else {
+                    $message = "Pas Coché !!!";
+                    setcookie("pseudo", "", 0);
+                    setcookie("mdp", "", 0);
+                    $pseudo = "";
+                    $mdp = "";
                 }
-                else
-                {
-                    $contenu .= '<div class="erreur">Erreur de MDP</div>';
-                }       
             }
-            else
-            {
-                $contenu .= '<div class="erreur">Erreur de pseudo</div>';
-            }
+        } else {
+            $message = "First time !!!";
         }
         //--------------------------------- AFFICHAGE HTML ---------------------------------//
-        
-        
-        
+
+
+
         ?>
 
     </nav>
     <section>
-    <!-- Pour contrôler les pseudo et mot de passe que tout fonctionne correctement -->
-    <!-- Si tout fonctionne on affiche le header -->
-    <!--<?php echo $contenu; ?>-->
+        <!-- Pour contrôler les pseudo et mot de passe que tout fonctionne correctement -->
+        <!-- Si tout fonctionne on affiche le header -->
+        <!--<?php echo $contenu; ?>-->
         <div class="container">
             <div class="row">
                 <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
@@ -100,9 +88,11 @@ http://localhost:3000/ProjetPersoInfoAvions/views/modele.php -->
 
                                 <div class="form-check mb-3">
                                     <input class="form-check-input" type="checkbox" value="" id="rememberPasswordCheck">
-                                    <label class="form-check-label" for="rememberPasswordCheck">
-                                        Mot de passe visible
-                                    </label>
+                                    <label class="form-check-label" for="rememberPasswordCheck">Mot de passe visible</label>
+                                </div>
+                                <div class="form-check mb-3">
+                                    <input class="form-check-input" type="checkbox" value="" id="remember">
+                                    <label class="form-check-label" for="remember">Se souvenir de moi</label>
                                 </div>
                                 <div class="d-grid">
                                     <button class="btn btn-primary btn-login text-uppercase fw-bold" type="submit">Connexion</button>
