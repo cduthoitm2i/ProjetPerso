@@ -31,10 +31,9 @@
   $civilite = $nom = $prenom = $telephone = $email = $email2 = $adresse = $cp = $ville = $pseudo = $mdp = $mdp2 = $newsletter = $sujet = "";
   $civiliteErr = $nomErr = $prenomErr = $telephoneErr = $emailErr = $email2Err = $email2bisErr = $adresseErr = $cpErr = $villeErr = $pseudoErr = $mdpErr = $mdp2Err = $mdp2bisErr = $newsletterErr = $sujetErr = "";
 
-  if ($_POST) {
-    //debug($_POST);
+  if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $verif_caractere = preg_match('#^[a-zA-Z0-9._-]+$#', $_POST['pseudo']);
-    if (!$verif_caractere && (strlen($_POST['pseudo']) < 1 || strlen($_POST['pseudo']) > 20)) // 
+    if (!$verif_caractere && (strlen($_POST['pseudo']) < 1 || strlen($_POST['pseudo']) > 20))
     {
       $contenu .= "<div class='erreur'>Le pseudo doit contenir entre 1 et 20 caractères. <br> Caractère accepté : Lettre de A à Z et chiffre de 0 à 9</div>";
     }
@@ -131,7 +130,8 @@
       $membre = executeRequete("SELECT * FROM membre WHERE pseudo='$_POST[pseudo]'");
       if ($membre->num_rows > 0) {
         $contenu .= "<div class='erreur'>Pseudo indisponible. Veuillez en choisir un autre svp.</div>";
-      } else {
+      }
+      else {
 
         // $_POST['mdp'] = md5($_POST['mdp']);
         foreach ($_POST as $indice => $valeur) {
@@ -172,7 +172,7 @@
           <div class="card border-0 shadow rounded-3 my-5">
             <div class="card-body p-4 p-sm-5">
               <h5 class="card-title text-center mb-5 fw-light fs-4">Création d'un compte utilisateur</h5>
-              <form method="POST" action="" class="needs-validation" novalidate>
+              <form name="fo" method="POST" action="" class="needs-validation" novalidate>
                 <p><span class="error">* champs requis</span></p>
                 <div class="form-floating mb-3">
                   <!-- Modifier en type text car ce n'est pas sécurisé pour le login, on préférera pour une inscription -->

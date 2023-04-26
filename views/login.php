@@ -18,16 +18,16 @@ http://localhost:3000/ProjetPersoInfoAvions/views/modele.php -->
 <body>
     <header>
         <?php
-        /* Modification de l'appel du document car ne fonctionne pas*/
-        /* include './partials/header.php';*/
         include '../views/partials/header.php';
         ?>
     </header>
     <nav>
         <?php
-        $submit = filter_input(INPUT_POST, "submit");
+        $message = "";
 
-        if ($submit != null) {
+        $submit = filter_input(INPUT_POST, "submit");
+        
+        if (isset($submit)) {
             $pseudo = filter_input(INPUT_POST, "pseudo");
             $mdp = filter_input(INPUT_POST, "mdp");
             // On test si les deux champs ne sont pas vide, sinon on mettrait un required dans la balise input
@@ -37,10 +37,10 @@ http://localhost:3000/ProjetPersoInfoAvions/views/modele.php -->
                 $message = "Toutes les saisies sont obligatoires";
             } else {
                 $message = "Jusque là tout va bien !!!";
-                // On test si le bouton "Se souvenir de moi est coché", on reprend la valeur remember de la balise input
-                $remember = filter_input(INPUT_POST, "remember");
+                // On test si le bouton "Se souvenir de moi est coché", on reprend la valeur chkSeSouvenir de la balise input
+                $chkSeSouvenir = filter_input(INPUT_POST, "chkSeSouvenir");
                 // On test si c'est coché
-                if ($remember != null) {
+                if ($chkSeSouvenir != null) {
                     $message = "Coché !!!";
                     // On affecte les cookies pour les deux variables (3600 secondes, 24 heures, 7 jours, soit expire dans 7 jours)
                     setcookie("pseudo", $pseudo, time() + (3600 * 24 * 7));
@@ -76,26 +76,26 @@ http://localhost:3000/ProjetPersoInfoAvions/views/modele.php -->
                             <form method="POST" action="">
                                 <div class="form-floating mb-3">
                                     <!-- Modifier en type text car ce n'est pas sécurisé pour le login, on préférera pour une inscription -->
-                                    <input type="text" id="pseudo" class="form-control" placeholder="Identifiant" name="pseudo" aria-describedby="IdentifiantAide" required />
+                                    <input type="text" id="pseudo" class="form-control" placeholder="Identifiant" name="pseudo" aria-describedby="IdentifiantAide" />
                                     <label class="form-label" for="pseudo">Pseudo&nbsp;:</label>
                                     <small id="IdentifiantAide" class="form-text text-muted">Saisir votre identifiant</small>
                                 </div>
                                 <div class="form-floating mb-3">
-                                    <input type="password" id="mdp" class="form-control" placeholder="Mot de passe" autocomplete="on" name="mdp" aria-describedby="mdpAide" required />
+                                    <input type="password" id="mdp" class="form-control" placeholder="Mot de passe" autocomplete="on" name="mdp" aria-describedby="mdpAide" />
                                     <label class="form-label" for="mdp">Mot de passe&nbsp;:</label>
                                     <small id="mdpAide" class="form-text text-muted">Saisir votre mot de passe</small>
                                 </div>
 
                                 <div class="form-check mb-3">
-                                    <input class="form-check-input" type="checkbox" value="" id="rememberPasswordCheck">
+                                    <input class="form-check-input" type="checkbox" value="" id="rememberPasswordCheck" name="rememberPasswordCheck">
                                     <label class="form-check-label" for="rememberPasswordCheck">Mot de passe visible</label>
                                 </div>
                                 <div class="form-check mb-3">
-                                    <input class="form-check-input" type="checkbox" value="" id="remember">
-                                    <label class="form-check-label" for="remember">Se souvenir de moi</label>
+                                    <input class="form-check-input" type="checkbox" value="" id="chkSeSouvenir" name="chkSeSouvenir">
+                                    <label class="form-check-label" for="chkSeSouvenir">Se souvenir de moi</label>
                                 </div>
                                 <div class="d-grid">
-                                    <button class="btn btn-primary btn-login text-uppercase fw-bold" type="submit">Connexion</button>
+                                    <button class="btn btn-primary btn-login text-uppercase fw-bold" type="submit" name="submit">Connexion</button>
                                 </div>
                                 <label>
                                     <?php
