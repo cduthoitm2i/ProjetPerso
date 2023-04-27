@@ -24,8 +24,6 @@
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Avion</a>
           <ul class="dropdown-menu dropdown-menu-end dropdown-menu-lg-start">
-            <!--<li><a class="dropdown-item" href="../views/Avion_recherche.php">Rechercher un avion</a></li>-->
-            <!-- Modification provisoire -->
             <li><a class="dropdown-item" href="../views/Avion_recherche.php">Rechercher un avion</a></li>
             <li><a class="dropdown-item" href="../views/Avion_liste_prod.php">Liste de production</a></li>
           </ul>
@@ -33,9 +31,9 @@
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Compagnie</a>
           <ul class="dropdown-menu dropdown-menu-end dropdown-menu-lg-start">
-          <li><a class="dropdown-item" href="../views/Compagnie_recherche.php">Rechercher une compagnie</a></li>
-          <li><a class="dropdown-item" href="../views/Compagnie_liste.php">Liste des compagnies</a></li>
-          <li><a class="dropdown-item" href="../views/Compagnie_liste_par_pays.php">Liste par pays</a></li>
+            <li><a class="dropdown-item" href="../views/Compagnie_recherche.php">Rechercher une compagnie</a></li>
+            <li><a class="dropdown-item" href="../views/Compagnie_liste.php">Liste des compagnies</a></li>
+            <li><a class="dropdown-item" href="../views/Compagnie_liste_par_pays.php">Liste par pays</a></li>
         </ul>
       </li>
       <li class="nav-item">
@@ -54,12 +52,32 @@
       <li class="nav-item">
         <a class="nav-link" href="../views/Contact.php">Contact</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="../views/Inscription.php">Inscription</a>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">
+          <i class="fas fa-user"></i>
+        </a>
+        <ul class="dropdown-menu dropdown-menu-end dropdown-menu-lg-start">
+          <li><a class="dropdown-item" href="../views/Inscription.php">Inscription</a></li>
+          <li><a class="dropdown-item" href="../views/Login.php">Login</a></li>
+        </ul>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="../views/Login.php">Login</a>
-      </li>
+      <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" id="navbarDropdown" role="button"
+                data-mdb-toggle="dropdown" aria-expanded="false"> <i class="fas fa-user mx-1"></i> Profil </a>
+                <!-- Dropdown menu -->
+                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                    <li>
+                        <a class="dropdown-item" href="#">Mon profil</a>
+                    </li>
+
+                    <li>
+                        <a class="dropdown-item" href="../views/deconnexion.php">Déconnexion</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="nav-item me-3 me-lg-0">
+            <a class="nav-link" href="#"><i class="fas fa-shopping-cart"></i></a>
+        </li>
     </ul>
     <form class="d-flex" role="search" method="GET" action="">
       <input class="form-control me-2" type="search" aria-label="Search">
@@ -67,5 +85,5 @@
     </form>
   </div>
 </div>';
-?>
+  ?>
 </nav>

@@ -146,8 +146,6 @@ table.dataTable thead span.sort-icon {
   height: 16px;
 }
 
-
-
 table.dataTable thead th {
   background: transparent !important;
   white-space: nowrap;
@@ -159,7 +157,6 @@ table.dataTable thead span.sort-icon {
   width: 16px;
   height: 16px;
 }
-
 
 table.dataTable thead .sorting span { background: url('../icones/sort_both.png') no-repeat center left; }
 table.dataTable thead .sorting_asc span { background: url('../icones/sort_asc.png') no-repeat center left; }
@@ -181,9 +178,21 @@ table.dataTable thead .sorting_desc_disabled:after {
   content: '';
 }
 
+/* CSS pour page boutique */
+/* toutes les images à 200px*/
+img.boutique{
+  width: 200px;
+  }
+/* Petit effet de zomm au passage de la souris sur l'image et on ajoute la compatibilité avec tous les navigateurs */
+img.boutique:hover{
+    -ms-transform: scale(1.5); /* IE 9 */
+    -webkit-transform: scale(1.5); /* Safari 3-8 */
+    transform: scale(1.5);
+    transition: transform 1s;
+    }
 
 
-
+/* CSS temporaire à supprimer certainement plus tard */
 /**************************************************** HAUT ************************************************/
 header { background: #000000; padding: 5px; text-align: center; }
 header  span{ color: #fff; font-weight: bold; text-transform: uppercase; margin-right: 5%; }
