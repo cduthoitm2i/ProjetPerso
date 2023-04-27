@@ -23,12 +23,6 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.10.18/datatables.min.css"/>
     <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.10.18/datatables.min.js"></script>
 
-
-
-
-
-
- 
     <!-- Ma CSS -->
     <link rel="stylesheet" href="../css/style.css">
     <!-- Mon favicon -->
@@ -72,9 +66,6 @@
             <h1>Liste de production</h1>
             <?php
             require_once '../lib/Connexion.php';
-            //require_once '../inc/init.inc.php';
-            //require_once '../inc/fonction.inc.php';
-            //require_once '../lib/Transaxion.php';
             require_once '../daos/clientDAOprod.php';
             $pdo = seConnecter("../conf/monsite.ini");
 
@@ -82,22 +73,13 @@
 
             //echo "Sélection de la base avion";
             $content = "";
-            $lines = selectAll($pdo);
-
+            $lines = selectAllPourListeTab($pdo);
             $headers = "";
 
 
-            // Extraction des autres enregistrements et on affiche dans les balises html
-            // On fait le corps du tableau
-            // On boucle sur les colonnes à l'intérieur de la boucle pour les lignes
-            $contents = "";
-            foreach ($lines as $line) {
-                $contents .= "<tr>";
-                foreach ($line as $column) {
-                    $contents .= "<td class='small'>$column</td>";
-                }
-                $contents .= "</tr>";
-            }
+            try {
+                $query = "SELECT numero_serie_avion, modele_avion, nom_compagnie, date_premier_vol_avion, immatriculation_compagnie_avion, statut_avion FROM `avion`";
+                $result = $pdo->query($query);
             ?>
 
             <div class="row py-5">
@@ -117,16 +99,32 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <?php
-                                        echo $contents;
+                                    <?php
+                                        while ($data = $result->fetch(PDO::FETCH_ASSOC)) {
+                                            
                                         ?>
+                                                <tr>
+                                                    <td class='small'><a href="../views/FicheAvion.php"><?php echo $data['numero_serie_avion']; ?></a></td>
+                                                    <td class='small'><?php echo $data['modele_avion']; ?></td>
+                                                    <td class='small'><a href="../views/FicheCompagnie.php"><?php echo $data['nom_compagnie']; ?></a></td>
+                                                    <td class='small'><?php echo $data['date_premier_vol_avion']; ?></td>
+                                                    <td class='small'><a href="#"><?php echo $data['immatriculation_compagnie_avion']; ?></a></td>
+                                                    <td class='small'><?php echo $data['statut_avion']; ?></td>
+                                                </tr>
+                                            <?php
+                                        }
+                                            ?>
                                     </tbody>
-                                </table>
+                                    </table>
+                                <?php
+                            } catch (PDOException $e) {
+                                echo "Error: " . $e->getMessage();
+                            } ?>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
         </div>
         </div>
 
@@ -138,15 +136,22 @@
     </footer>
 </body>
 <script>
-    $(document).ready( function () {
-  var table = $('#liste_avion').DataTable({
-    "pageLength":50
-  });
-  
-    table.columns().iterator( 'column', function (ctx, idx) {
-    $( table.column(idx).header() ).append('<span class="sort-icon"/>');
-  } );
-} );
+    /*$(document).ready(function() {
+        var table = $('#liste_avion').DataTable({
+            responsive: true
+        });
+
+        new $.fn.dataTable.FixedHeader(table);
+    });*/
+    $(document).ready(function() {
+        var table = $('#liste_avion').DataTable({
+            "pageLength": 25
+        });
+
+        table.columns().iterator('column', function(ctx, idx) {
+            $(table.column(idx).header()).append('<span class="sort-icon"/>');
+        });
+    });
 </script>
 
 

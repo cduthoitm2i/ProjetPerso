@@ -55,7 +55,8 @@
             $sujet = $_POST['sujet'];
             // Mail message
             $message = $_POST['message'];
-            // Mail entête (avant on paramètre pour les accents soient corrects dans le mail de réception en définissant le codage utf-8)
+            // Mail entête (avant on paramètre pour les caractères spéciaux soient corrects dans l'entête du mail de réception en définissant le codage utf-8)
+            // Test effectué avec des emojis, résultat ok
             $headers = 'MIME-Version: 1.0' . "\n";
             $headers .= 'Content-type: text/plain; charset=utf-8' . "\n";
             $headers .= 'Content-Transfer-Encoding: 8bit' . "\n";
@@ -64,7 +65,7 @@
             // Essai d'envoi du mail
             if (mail($to, $sujet, $message, $headers)) {
                 // Envoi réussi
-                $reponses[] = 'Message envoyé!';
+                $reponses[] = 'Message bien envoyé!';
             } else {
                 // Echec
                 $reponses[] = 'Message pas envoyé! Merci de vérifier la configuration de votre serveur mail!';
@@ -81,7 +82,7 @@
                             <fieldset>
                                 <legend class="text-center">Contact</legend>
 
-                                <!-- Votre nom-->
+                                <!-- champs pour votre nom-->
                                 <div class="form-group">
 
                                     <div class="form-floating mb-3">
@@ -91,7 +92,7 @@
                                     </div>
                                 </div>
 
-                                <!-- Votre prénom-->
+                                <!-- champs pour votre prénom-->
                                 <div class="form-group">
 
                                     <div class="form-floating mb-3">
@@ -100,7 +101,7 @@
                                         <!--<span class="error"><?php echo $prenomErr; ?></span>-->
                                     </div>
                                 </div>
-                                <!-- Sujet du message-->
+                                <!-- champs pour le sujet du message-->
                                 <div class="form-group">
 
                                     <div class="form-floating mb-3">
@@ -110,7 +111,7 @@
                                     </div>
                                 </div>
 
-                                <!-- Email -->
+                                <!-- champs pour l'email -->
                                 <div class="form-group">
                                     <div class="form-floating mb-3">
                                         <input type="email" class="form-control" id="email" placeholder="E-mail" name="email" value="<?php if (isset($_POST['email'])) echo htmlspecialchars($_POST['email']); ?>" required>
@@ -119,7 +120,7 @@
                                     </div>
                                 </div>
 
-                                <!-- Message -->
+                                <!-- champs pour le message -->
                                 <div class="form-group mb-3">
                                     <div class="col-md-12">
                                         <textarea class="form-control" id="message" name="message" placeholder="Merci de saisir votre message..." rows="5"><?php if (isset($_POST['commentaire'])) echo htmlspecialchars($_POST['commentaire']); ?></textarea>

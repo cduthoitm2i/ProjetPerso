@@ -148,8 +148,9 @@
         $tattributesValues['ville'] = $ville;
         $tattributesValues['pseudo'] = $pseudo;
         // Cryptage du mot de passe
-        $mdp = password_hash("mdp", PASSWORD_BCRYPT);
-        $tattributesValues['mdp'] = $mdp;
+        $tattributesValues['mdp'] 	= password_hash($_POST['mdp'], PASSWORD_DEFAULT);
+        //$mdp = password_hash("mdp", PASSWORD_BCRYPT);
+        //$tattributesValues['mdp'] = $mdp;
         executeRequete("INSERT INTO membre (pseudo, mdp, nom, prenom, email, civilite, ville, cp, adresse) VALUES ('$_POST[pseudo]', '$_POST[mdp]', '$_POST[nom]', '$_POST[prenom]', '$_POST[email]', '$_POST[civilite]', '$_POST[ville]', '$_POST[cp]', '$_POST[adresse]')");
         $contenu .= "<div class='validation'>Vous êtes inscrit à notre site web. <a href=\"connexion.php\"><u>Cliquez ici pour vous connecter</u></a></div>";
       }

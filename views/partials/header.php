@@ -14,7 +14,7 @@
     include 'header_admin.php';
   }
   if (internauteEstConnecte()) {
-    include 'header_admin_boutique.php';
+    include 'header_admin.php';
   } else {
     include 'header_front.php';
   }

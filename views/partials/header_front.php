@@ -10,7 +10,7 @@
 
   <?php
   //require_once("../inc/init.inc.php");
-  require_once("../inc/fonction.inc.php");
+  //require_once("../inc/fonction.inc.php");
   echo '<div class="container-fluid">
     <a class="navbar-brand" href="../views/Accueil.php">
       <img src="../icones/Logo_Airbus_2014.svg" alt="Mon logo" width="200">
