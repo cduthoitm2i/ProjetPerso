@@ -110,15 +110,15 @@
                                       <tbody>
                                       <?php
                                         while ($data = $result->fetch(PDO::FETCH_ASSOC)) {
-
+                                            
                                         ?>
                                                 <tr>
-                                                    <td class='small'><?php echo $data['numero_serie_avion']; ?> </td>
-                                                    <td class='small'><?php echo $data['modele_avion']; ?> </td>
-                                                    <td class='small'><?php echo $data['nom_compagnie']; ?> </td>
-                                                    <td class='small'><?php echo $data['date_premier_vol_avion']; ?> </td>
-                                                    <td class='small'><?php echo $data['immatriculation_compagnie_avion']; ?> </td>
-                                                    <td class='small'><?php echo $data['statut_avion']; ?> </td>
+                                                    <td class='small'><a href="../views/FicheAvion.php"><?php echo $data['numero_serie_avion']; ?></a></td>
+                                                    <td class='small'><?php echo $data['modele_avion']; ?></td>
+                                                    <td class='small'><a href="../views/FicheCompagnie.php"><?php echo $data['nom_compagnie']; ?></a></td>
+                                                    <td class='small'><?php echo $data['date_premier_vol_avion']; ?></td>
+                                                    <td class='small'><a href="#"><?php echo $data['immatriculation_compagnie_avion']; ?></a></td>
+                                                    <td class='small'><?php echo $data['statut_avion']; ?></td>
                                                 </tr>
                                             <?php
                                         }

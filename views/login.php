@@ -1,6 +1,4 @@
 <!DOCTYPE html>
-<!-- modele.php
-http://localhost:3000/ProjetPersoInfoAvions/views/modele.php -->
 <html lang="fr">
 
 <head>
@@ -18,12 +16,6 @@ http://localhost:3000/ProjetPersoInfoAvions/views/modele.php -->
     <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
     <link src="https://cdn.datatables.net/fixedheader/3.1.7/css/fixedHeader.dataTables.min.css">
     <script src="https://cdn.datatables.net/fixedheader/3.1.7/js/dataTables.fixedHeader.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.10.18/datatables.min.css" />
-    <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.10.18/datatables.min.js"></script>
     <script src="https://kit.fontawesome.com/0005c4531c.js" crossorigin="anonymous"></script>
     <!-- Ma CSS -->
     <link rel="stylesheet" href="../css/style.css">
@@ -90,7 +82,7 @@ http://localhost:3000/ProjetPersoInfoAvions/views/modele.php -->
                 }
             }
         } else {
-            $message = "First time !!!";
+            //$message = "Première connexion !!!";
         }
         //--------------------------------- AFFICHAGE HTML ---------------------------------//
 
@@ -112,7 +104,7 @@ http://localhost:3000/ProjetPersoInfoAvions/views/modele.php -->
                             <form method="POST" action="">
                                 <div class="form-floating mb-3">
                                     <!-- Modifier en type text car ce n'est pas sécurisé pour le login, on préférera pour une inscription -->
-                                    <input type="text" id="pseudo" class="form-control" placeholder="Identifiant" name="pseudo" aria-describedby="IdentifiantAide" />
+                                    <input type="text" id="pseudo" class="form-control" placeholder="Identifiant" name="pseudo" aria-describedby="IdentifiantAide" required/>
                                     <label class="form-label" for="pseudo">Pseudo&nbsp;:</label>
                                     <small id="IdentifiantAide" class="form-text text-muted">Saisir votre identifiant</small>
                                 </div>
