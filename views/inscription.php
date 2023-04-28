@@ -1,6 +1,11 @@
+<?php
+//ob_start();
+//ob_end_clean();
+setcookie("pseudo", "", 0);
+setcookie("mdp", "", 0);
+?>
 <!DOCTYPE html>
 <html lang="fr">
-
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -16,7 +21,6 @@
     <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
     <link src="https://cdn.datatables.net/fixedheader/3.1.7/css/fixedHeader.dataTables.min.css">
     <script src="https://cdn.datatables.net/fixedheader/3.1.7/js/dataTables.fixedHeader.min.js"></script>
-
     <script src="https://kit.fontawesome.com/0005c4531c.js" crossorigin="anonymous"></script>
     <!-- Ma CSS -->
     <link rel="stylesheet" href="../css/style.css">
@@ -42,9 +46,7 @@
     <meta name="msapplication-wide310x150logo" content="mstile-310x150.png" />
     <meta name="msapplication-square310x310logo" content="mstile-310x310.png" />
 </head>
-
 <body>
-
   <header>
     <?php
     include '../views/partials/header.php';

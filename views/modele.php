@@ -1,3 +1,9 @@
+<?php
+//ob_start();
+//ob_end_clean();
+setcookie("pseudo", "", 0);
+setcookie("mdp", "", 0);
+?>
 <!DOCTYPE html>
 <!-- modele.php
 http://localhost:3000/ProjetPersoInfoAvions/views/modele.php -->

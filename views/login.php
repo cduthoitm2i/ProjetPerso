@@ -1,6 +1,11 @@
+<?php
+//ob_start();
+//ob_end_clean();
+setcookie("pseudo", "", 0);
+setcookie("mdp", "", 0);
+?>
 <!DOCTYPE html>
 <html lang="fr">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -42,7 +47,6 @@
     <meta name="msapplication-square310x310logo" content="mstile-310x310.png" />
     <title>Mon modèle de site</title>
 </head>
-
 <body>
     <header>
         <?php
@@ -75,14 +79,13 @@
                     setcookie("mdp", $mdp, time() + (3600 * 24 * 7));
                 } else {
                     $message = "Pas Coché !!!";
-                    setcookie("pseudo", "", 0);
-                    setcookie("mdp", "", 0);
-                    $pseudo = "";
-                    $mdp = "";
+                    //$pseudo = "";
+                    //$mdp = "";
                 }
             }
         } else {
             //$message = "Première connexion !!!";
+            
         }
         //--------------------------------- AFFICHAGE HTML ---------------------------------//
 
@@ -94,7 +97,7 @@
     <section>
         <!-- Pour contrôler les pseudo et mot de passe que tout fonctionne correctement -->
         <!-- Si tout fonctionne on affiche le header -->
-        <!--<?php echo $contenu; ?>-->
+        
         <div class="container">
             <div class="row">
                 <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
@@ -104,12 +107,12 @@
                             <form method="POST" action="">
                                 <div class="form-floating mb-3">
                                     <!-- Modifier en type text car ce n'est pas sécurisé pour le login, on préférera pour une inscription -->
-                                    <input type="text" id="pseudo" class="form-control" placeholder="Identifiant" name="pseudo" aria-describedby="IdentifiantAide" required/>
+                                    <input type="text" id="pseudo" class="form-control" placeholder="Identifiant" name="pseudo" aria-describedby="IdentifiantAide" required value="Pseudo4"/>
                                     <label class="form-label" for="pseudo">Pseudo&nbsp;:</label>
                                     <small id="IdentifiantAide" class="form-text text-muted">Saisir votre identifiant</small>
                                 </div>
                                 <div class="form-floating mb-3">
-                                    <input type="password" id="mdp" class="form-control" placeholder="Mot de passe" autocomplete="on" name="mdp" aria-describedby="mdpAide" />
+                                    <input type="password" id="mdp" class="form-control" placeholder="Mot de passe" autocomplete="on" name="mdp" aria-describedby="mdpAide" value="CaNaDa205206$;" />
                                     <label class="form-label" for="mdp">Mot de passe&nbsp;:</label>
                                     <small id="mdpAide" class="form-text text-muted">Saisir votre mot de passe</small>
                                 </div>
@@ -140,7 +143,6 @@
             </div>
         </div>
     </section>
-
     <footer>
         <?php
         /* Modification de l'appel du document car ne fonctionne pas*/
@@ -149,5 +151,4 @@
         ?>
     </footer>
 </body>
-
 </html>

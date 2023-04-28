@@ -1,10 +1,8 @@
 <?php
 /* echo "Header";*/
 ?>
-
 <!-- Ma navbar Bootstrap 5-->
 <!-- ajout du style background-color: #e3f2fd;" dans la balise nav de départ pour faire un bleu pale -->
-
 <nav class="navbar navbar-expand-lg fixed-top" style="background-color: #e3f2fd;">
   <div class="container-fluid">
     <a class="navbar-brand" href="../views/Accueil.php">
